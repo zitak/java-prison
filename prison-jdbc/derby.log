@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Thu Apr 21 09:34:17 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-37bd-a781-0000037b5dc8 
+on database directory memory:C:\Users\Zita\Desktop\Semestr\java\prison-webapp\prison-jdbc\prisonmgr-test with class loader sun.misc.Launcher$AppClassLoader@15db9742 
+Loaded from file:/C:/Users/Zita/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_66-b18
+user.dir=C:\Users\Zita\Desktop\Semestr\java\prison-webapp\prison-jdbc
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

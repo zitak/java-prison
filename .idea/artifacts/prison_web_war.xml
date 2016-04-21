@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="prison-web:war">
+    <output-path>$PROJECT_DIR$/prison-web/target</output-path>
+    <root id="archive" name="prison-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="prison-web:war exploded" />
+    </root>
+  </artifact>
+</component>
