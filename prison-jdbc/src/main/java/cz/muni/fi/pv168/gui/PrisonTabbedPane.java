@@ -1,5 +1,5 @@
 
-package cz.muni.fi.pv168.swing;
+package cz.muni.fi.pv168.gui;
 
 import java.awt.GridLayout;
 import javax.swing.JComponent;

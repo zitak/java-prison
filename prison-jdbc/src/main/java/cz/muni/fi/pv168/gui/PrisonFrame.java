@@ -1,5 +1,5 @@
 
-package cz.muni.fi.pv168.swing;
+package cz.muni.fi.pv168.gui;
 
 import java.awt.BorderLayout;
 import java.time.LocalDate;
@@ -17,10 +17,10 @@ public class PrisonFrame extends javax.swing.JFrame {
         initComponents();
 
         PrisonersTableModel model_prisoners = (PrisonersTableModel) jTablePrisoners.getModel();
-        model_prisoners.addPrisoner(new Prisoner(1, "Martin", "Panak", LocalDate.of(1964, 3, 1)));
+        //model_prisoners.addPrisoner(new Prisoner(1, "Martin", "Panak", LocalDate.of(1964, 3, 1)));
         
         SentencesTableModel model_sentences = (SentencesTableModel) jTableSentences.getModel();
-        model_sentences.addSentence(new Sentence(1, 2, LocalDate.of(2015, 1, 3), LocalDate.of(2016, 4, 5), "murderer"));
+        //model_sentences.addSentence(new Sentence(1, 2, LocalDate.of(2015, 1, 3), LocalDate.of(2016, 4, 5), "murderer"));
     }
 
     /**
