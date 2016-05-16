@@ -3,7 +3,6 @@ package cz.muni.fi.pv168.swing;
 
 import java.awt.BorderLayout;
 import java.time.LocalDate;
-import javax.swing.JComboBox;
 
 /**
  *
@@ -83,7 +82,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         jPanelPrisonersLayout.setVerticalGroup(
             jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAddPrisoner)
                 .addContainerGap())
@@ -114,7 +113,7 @@ public class PrisonFrame extends javax.swing.JFrame {
             jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSentencesLayout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonAddSentence)
                 .addGap(0, 16, Short.MAX_VALUE))
         );
@@ -129,7 +128,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPanePrison)
+            .addComponent(jTabbedPanePrison, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
