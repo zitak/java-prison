@@ -134,12 +134,13 @@ public class PrisonFrame extends javax.swing.JFrame {
 
     private void jButtonAddPrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPrisonerActionPerformed
         PrisonersTableModel model_prisoners = (PrisonersTableModel) jTablePrisoners.getModel();
-        model_prisoners.addPrisoner(newPrisoner());
+        //model_prisoners.addPrisoner(newPrisoner());
+        AddPrisoner add_prisoner = new AddPrisoner();
     }//GEN-LAST:event_jButtonAddPrisonerActionPerformed
 
     private void jButtonAddSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSentenceActionPerformed
         SentencesTableModel model_sentences = (SentencesTableModel) jTableSentences.getModel();
-        model_sentences.addSentence(newSentence());
+        //model_sentences.addSentence(newSentence());
     }//GEN-LAST:event_jButtonAddSentenceActionPerformed
    
     public static void main(String args[]) {
@@ -153,14 +154,6 @@ public class PrisonFrame extends javax.swing.JFrame {
                 frame.setVisible(true);
             }
         });
-    }
-    
-    private Prisoner newPrisoner() {
-        return null;
-    }
-    
-    private Sentence newSentence() {
-        return null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
