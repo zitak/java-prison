@@ -2,7 +2,6 @@
 package cz.muni.fi.pv168.gui;
 
 import java.awt.BorderLayout;
-import java.time.LocalDate;
 
 /**
  *
@@ -32,20 +31,87 @@ public class PrisonFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jTabbedPanePrison = new javax.swing.JTabbedPane();
         jPanelPrisoners = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablePrisoners = new javax.swing.JTable();
-        jButtonAddPrisoner = new javax.swing.JButton();
+        jButtonCreatePrisoner = new javax.swing.JButton();
+        jLabelPrisoners = new javax.swing.JLabel();
+        jTextFieldPrisonerCreateName = new javax.swing.JTextField();
+        jTextFieldPrisonerCreateSurname = new javax.swing.JTextField();
+        jButtonDeletePrisoner = new javax.swing.JButton();
+        jTextFieldPrisonerUpdateName = new javax.swing.JTextField();
+        jTextFieldPrisonerUpdateSurname = new javax.swing.JTextField();
+        jButtonUpdatePrisoner = new javax.swing.JButton();
+        jComboBoxSentencePunishment = new javax.swing.JComboBox<>();
+        jButtonCreateSentence = new javax.swing.JButton();
+        jLabelCells = new javax.swing.JLabel();
+        jComboBoxCreateCellFloor = new javax.swing.JComboBox<>();
+        jSpinnerCreateCellCapacity = new javax.swing.JSpinner();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableCells = new javax.swing.JTable();
+        jComboBoxUpdateCellFloor = new javax.swing.JComboBox<>();
+        jSpinnerUpdateCellCapacity = new javax.swing.JSpinner();
+        jButtonCreateCell = new javax.swing.JButton();
+        jButtonDeleteCell = new javax.swing.JButton();
+        jButtonUpdateCell = new javax.swing.JButton();
+        jLabelSentence = new javax.swing.JLabel();
         jPanelSentences = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableSentences = new javax.swing.JTable();
-        jButtonAddSentence = new javax.swing.JButton();
+        jLabelSentences = new javax.swing.JLabel();
+        jButtonSentenceDelete = new javax.swing.JButton();
+        jComboBoxSentenceUpdatePunishment = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePrisoners.setModel(new PrisonersTableModel());
+        jScrollPane2.setViewportView(jTablePrisoners);
+
+        jButtonCreatePrisoner.setText("Create Prisoner");
+        jButtonCreatePrisoner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreatePrisonerActionPerformed(evt);
+            }
+        });
+
+        jLabelPrisoners.setText("Prisoners");
+
+        jTextFieldPrisonerCreateName.setText("Create Name");
+
+        jTextFieldPrisonerCreateSurname.setText("Create Surname");
+
+        jButtonDeletePrisoner.setText("Delete Prisoner");
+        jButtonDeletePrisoner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeletePrisonerActionPerformed(evt);
+            }
+        });
+
+        jTextFieldPrisonerUpdateName.setText("Update Name");
+
+        jTextFieldPrisonerUpdateSurname.setText("Update Surname");
+
+        jButtonUpdatePrisoner.setText("Update Prisoner");
+        jButtonUpdatePrisoner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdatePrisonerActionPerformed(evt);
+            }
+        });
+
+        jComboBoxSentencePunishment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButtonCreateSentence.setText("Create Sentence");
+        jButtonCreateSentence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCreateSentenceActionPerformed(evt);
+            }
+        });
+
+        jLabelCells.setText("Cells");
+
+        jComboBoxCreateCellFloor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTableCells.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,36 +122,136 @@ public class PrisonFrame extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane4.setViewportView(jTableCells);
 
-        jTabbedPane2.addTab("tab1", jScrollPane1);
+        jComboBoxUpdateCellFloor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTablePrisoners.setModel(new PrisonersTableModel());
-        jScrollPane2.setViewportView(jTablePrisoners);
-
-        jButtonAddPrisoner.setText("Add Prisoner");
-        jButtonAddPrisoner.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCreateCell.setText("Create Cell");
+        jButtonCreateCell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddPrisonerActionPerformed(evt);
+                jButtonCreateCellActionPerformed(evt);
             }
         });
+
+        jButtonDeleteCell.setText("Delete Cell");
+        jButtonDeleteCell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteCellActionPerformed(evt);
+            }
+        });
+
+        jButtonUpdateCell.setText("Update Cell");
+        jButtonUpdateCell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateCellActionPerformed(evt);
+            }
+        });
+
+        jLabelSentence.setText("Sentence");
 
         javax.swing.GroupLayout jPanelPrisonersLayout = new javax.swing.GroupLayout(jPanelPrisoners);
         jPanelPrisoners.setLayout(jPanelPrisonersLayout);
         jPanelPrisonersLayout.setHorizontalGroup(
             jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addComponent(jComboBoxUpdateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerCreateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonDeleteCell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonUpdateCell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(jButtonCreateCell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                        .addComponent(jTextFieldPrisonerCreateName, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldPrisonerCreateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                        .addComponent(jTextFieldPrisonerUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldPrisonerUpdateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabelCells, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(94, 94, 94))
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jComboBoxSentencePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(191, 191, 191)))
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonCreateSentence, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonDeletePrisoner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonUpdatePrisoner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonCreatePrisoner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(25, 25, 25))
             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                .addComponent(jButtonAddPrisoner)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabelSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelPrisonersLayout.setVerticalGroup(
             jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabelPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonAddPrisoner)
-                .addContainerGap())
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPrisonerCreateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrisonerCreateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCreatePrisoner))
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jButtonDeletePrisoner))
+                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPrisonerUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrisonerUpdateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonUpdatePrisoner))
+                .addGap(37, 37, 37)
+                .addComponent(jLabelSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCreateSentence)
+                    .addComponent(jComboBoxSentencePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabelCells, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonCreateCell)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
+                        .addComponent(jButtonDeleteCell)
+                        .addGap(65, 65, 65)))
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonUpdateCell)
+                    .addComponent(jComboBoxUpdateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinnerCreateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
         );
 
         jTabbedPanePrison.addTab("Prisoners", jPanelPrisoners);
@@ -93,29 +259,55 @@ public class PrisonFrame extends javax.swing.JFrame {
         jTableSentences.setModel(new SentencesTableModel());
         jScrollPane3.setViewportView(jTableSentences);
 
-        jButtonAddSentence.setText("Add Sentence");
-        jButtonAddSentence.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddSentenceActionPerformed(evt);
-            }
-        });
+        jLabelSentences.setText("Sentences");
+
+        jButtonSentenceDelete.setText("Delete Sentence");
+
+        jComboBoxSentenceUpdatePunishment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton1.setText("Update Sentence");
 
         javax.swing.GroupLayout jPanelSentencesLayout = new javax.swing.GroupLayout(jPanelSentences);
         jPanelSentences.setLayout(jPanelSentencesLayout);
         jPanelSentencesLayout.setHorizontalGroup(
             jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
             .addGroup(jPanelSentencesLayout.createSequentialGroup()
-                .addComponent(jButtonAddSentence)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                        .addComponent(jLabelSentences, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSentencesLayout.createSequentialGroup()
+                        .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSentencesLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jComboBoxSentenceUpdatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(166, 166, 166)))
+                        .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jButtonSentenceDelete))
+                        .addGap(34, 34, 34))))
         );
         jPanelSentencesLayout.setVerticalGroup(
             jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSentencesLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonAddSentence)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabelSentences, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jButtonSentenceDelete)))
+                .addGap(29, 29, 29)
+                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jComboBoxSentenceUpdatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
         jTabbedPanePrison.addTab("Sentences", jPanelSentences);
@@ -128,20 +320,38 @@ public class PrisonFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPanePrison, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+            .addComponent(jTabbedPanePrison)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddPrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPrisonerActionPerformed
+    private void jButtonCreatePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreatePrisonerActionPerformed
         PrisonersTableModel model_prisoners = (PrisonersTableModel) jTablePrisoners.getModel();
         //model_prisoners.addPrisoner(newPrisoner());
-        AddPrisoner add_prisoner = new AddPrisoner();
-    }//GEN-LAST:event_jButtonAddPrisonerActionPerformed
+    }//GEN-LAST:event_jButtonCreatePrisonerActionPerformed
 
-    private void jButtonAddSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSentenceActionPerformed
-        SentencesTableModel model_sentences = (SentencesTableModel) jTableSentences.getModel();
-        //model_sentences.addSentence(newSentence());
-    }//GEN-LAST:event_jButtonAddSentenceActionPerformed
+    private void jButtonCreateCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCellActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCreateCellActionPerformed
+
+    private void jButtonDeleteCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCellActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteCellActionPerformed
+
+    private void jButtonUpdateCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateCellActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUpdateCellActionPerformed
+
+    private void jButtonCreateSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateSentenceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCreateSentenceActionPerformed
+
+    private void jButtonUpdatePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdatePrisonerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUpdatePrisonerActionPerformed
+
+    private void jButtonDeletePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletePrisonerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeletePrisonerActionPerformed
    
     public static void main(String args[]) {
         /* Create and display the form */
@@ -157,17 +367,37 @@ public class PrisonFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAddPrisoner;
-    private javax.swing.JButton jButtonAddSentence;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonCreateCell;
+    private javax.swing.JButton jButtonCreatePrisoner;
+    private javax.swing.JButton jButtonCreateSentence;
+    private javax.swing.JButton jButtonDeleteCell;
+    private javax.swing.JButton jButtonDeletePrisoner;
+    private javax.swing.JButton jButtonSentenceDelete;
+    private javax.swing.JButton jButtonUpdateCell;
+    private javax.swing.JButton jButtonUpdatePrisoner;
+    private javax.swing.JComboBox<String> jComboBoxCreateCellFloor;
+    private javax.swing.JComboBox<String> jComboBoxSentencePunishment;
+    private javax.swing.JComboBox<String> jComboBoxSentenceUpdatePunishment;
+    private javax.swing.JComboBox<String> jComboBoxUpdateCellFloor;
+    private javax.swing.JLabel jLabelCells;
+    private javax.swing.JLabel jLabelPrisoners;
+    private javax.swing.JLabel jLabelSentence;
+    private javax.swing.JLabel jLabelSentences;
     private javax.swing.JPanel jPanelPrisoners;
     private javax.swing.JPanel jPanelSentences;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSpinner jSpinnerCreateCellCapacity;
+    private javax.swing.JSpinner jSpinnerUpdateCellCapacity;
     private javax.swing.JTabbedPane jTabbedPanePrison;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableCells;
     private javax.swing.JTable jTablePrisoners;
     private javax.swing.JTable jTableSentences;
+    private javax.swing.JTextField jTextFieldPrisonerCreateName;
+    private javax.swing.JTextField jTextFieldPrisonerCreateSurname;
+    private javax.swing.JTextField jTextFieldPrisonerUpdateName;
+    private javax.swing.JTextField jTextFieldPrisonerUpdateSurname;
     // End of variables declaration//GEN-END:variables
 }
