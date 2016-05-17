@@ -2,6 +2,7 @@
 package cz.muni.fi.pv168.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 /**
  *
@@ -16,10 +17,10 @@ public class PrisonFrame extends javax.swing.JFrame {
         initComponents();
 
         PrisonersTableModel model_prisoners = (PrisonersTableModel) jTablePrisoners.getModel();
-        //model_prisoners.addPrisoner(new Prisoner(1, "Martin", "Panak", LocalDate.of(1964, 3, 1)));
-        
+        CellsTableModel model_cells = (CellsTableModel) jTableCells.getModel();
         SentencesTableModel model_sentences = (SentencesTableModel) jTableSentences.getModel();
-        //model_sentences.addSentence(new Sentence(1, 2, LocalDate.of(2015, 1, 3), LocalDate.of(2016, 4, 5), "murderer"));
+        
+        
     }
 
     /**
@@ -111,17 +112,7 @@ public class PrisonFrame extends javax.swing.JFrame {
 
         jComboBoxCreateCellFloor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTableCells.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        jTableCells.setModel(new CellsTableModel());
         jScrollPane4.setViewportView(jTableCells);
 
         jComboBoxUpdateCellFloor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -325,8 +316,7 @@ public class PrisonFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCreatePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreatePrisonerActionPerformed
-        PrisonersTableModel model_prisoners = (PrisonersTableModel) jTablePrisoners.getModel();
-        //model_prisoners.addPrisoner(newPrisoner());
+
     }//GEN-LAST:event_jButtonCreatePrisonerActionPerformed
 
     private void jButtonCreateCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCellActionPerformed
@@ -358,9 +348,11 @@ public class PrisonFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 PrisonFrame frame = new PrisonFrame();
+                frame.setPreferredSize(new Dimension(750, 700));
                 frame.getContentPane().add(new PrisonTabbedPane(), BorderLayout.CENTER);
                 frame.setDefaultCloseOperation(PrisonFrame.EXIT_ON_CLOSE);
                 frame.setTitle("Prison");
+                frame.pack();
                 frame.setVisible(true);
             }
         });
