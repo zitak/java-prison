@@ -177,17 +177,17 @@ public class PrisonFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        jSpinnerUpdateSentenceStartDay = new javax.swing.JSpinner();
         jLabel19 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        jSpinnerUpdateSentenceStartMonth = new javax.swing.JSpinner();
         jLabel20 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
+        jSpinnerUpdateSentenceStartYear = new javax.swing.JSpinner();
         jLabel21 = new javax.swing.JLabel();
-        jSpinner4 = new javax.swing.JSpinner();
+        jSpinnerUpdateSentenceEndDay = new javax.swing.JSpinner();
         jLabel22 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
+        jSpinnerUpdateSentenceEndMonth = new javax.swing.JSpinner();
         jLabel23 = new javax.swing.JLabel();
-        jSpinner6 = new javax.swing.JSpinner();
+        jSpinnerUpdateSentenceEndYear = new javax.swing.JSpinner();
         jTextFieldSentenceUpdate = new javax.swing.JTextField();
 
         jTablePrisoners.setModel(new PrisonersTableModel());
@@ -591,29 +591,29 @@ public class PrisonFrame extends javax.swing.JFrame {
 
         jLabel18.setText("Day");
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+        jSpinnerUpdateSentenceStartDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
         jLabel19.setText("Month");
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        jSpinnerUpdateSentenceStartMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
         jLabel20.setText("Year");
 
-        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
+        jSpinnerUpdateSentenceStartYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
         jLabel21.setText("Day");
 
-        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+        jSpinnerUpdateSentenceEndDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
         jLabel22.setText("Month");
 
-        jSpinner5.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        jSpinnerUpdateSentenceEndMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
         jLabel23.setText("Year");
 
-        jSpinner6.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
+        jSpinnerUpdateSentenceEndYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
-        jTextFieldSentenceUpdate.setText("punishment");
+        jTextFieldSentenceUpdate.setText("Punishment");
 
         javax.swing.GroupLayout jPanelSentencesLayout = new javax.swing.GroupLayout(jPanelSentences);
         jPanelSentences.setLayout(jPanelSentencesLayout);
@@ -637,27 +637,27 @@ public class PrisonFrame extends javax.swing.JFrame {
                                     .addGroup(jPanelSentencesLayout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerUpdateSentenceStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel19)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerUpdateSentenceStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel20)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jSpinnerUpdateSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelSentencesLayout.createSequentialGroup()
                                         .addComponent(jLabel21)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerUpdateSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel22)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerUpdateSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel23)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jSpinnerUpdateSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextFieldSentenceUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
@@ -687,19 +687,19 @@ public class PrisonFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel16)
                                     .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel20)
-                                        .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerUpdateSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerUpdateSentenceStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel19)
-                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinnerUpdateSentenceStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel18)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel17)
                                     .addComponent(jLabel23)
-                                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerUpdateSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerUpdateSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel22)
-                                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerUpdateSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel21)))
                             .addComponent(jTextFieldSentenceUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelSentencesLayout.createSequentialGroup()
@@ -1004,37 +1004,45 @@ public class PrisonFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSentenceUpdateActionPerformed
     
     private class UpdateSentenceSwingWorker extends SwingWorker<Sentence,Void> {
-        private SentencesTableModel sentenceModel = (SentencesTableModel) jTableSentences.getModel();
-        private PrisonersTableModel prisonersModel = (PrisonersTableModel) jTablePrisoners.getModel();
-        private CellsTableModel cellsModel = (CellsTableModel) jTableCells.getModel();
+        private SentencesTableModel model = (SentencesTableModel) jTableSentences.getModel();
+        
         @Override
         protected Sentence doInBackground() throws Exception {
-            Long prisonerId = (Long) prisonersModel.getValueAt(jTablePrisoners.getSelectedRow(), 0);
-            Long cellId = (Long) cellsModel.getValueAt(jTableCells.getSelectedRow(), 0);
-            LocalDate from = LocalDate.of((Integer) jSpinnerSentenceStardYear.getValue()
-                    ,(Integer) jSpinnerSentenceStardMonth.getValue()
-                    , (Integer) jSpinnerSentenceStardDay.getValue());
-            LocalDate to = LocalDate.of((Integer) jSpinnerSentenceEndYear.getValue()
-                    , (Integer) jSpinnerSentenceEndMonth.getValue()
-                    , (Integer) jSpinnerSentenceEndDay.getValue());
-            String punishment = jTextFieldSentenceCreatePunishment.getText();
+            int index = jTableSentences.getSelectedRow();
+            Long prisonerId = (Long) model.getValueAt(index, 0);
+            Long cellId = (Long) model.getValueAt(index, 1);
+            LocalDate from = (LocalDate) model.getValueAt(index , 2);
+            LocalDate to = (LocalDate) model.getValueAt(index, 3);
+            String punishment = (String) model.getValueAt(index, 4);
+            
+            Sentence oldS = new Sentence(prisonerId, cellId, from, to, punishment);
+            
+            LocalDate newFrom = LocalDate.of((Integer) jSpinnerUpdateSentenceStartYear.getValue()
+                    , (Integer) jSpinnerUpdateSentenceStartMonth.getValue()
+                    , (Integer) jSpinnerUpdateSentenceStartDay.getValue());
+            
+            LocalDate newTo = LocalDate.of((Integer) jSpinnerUpdateSentenceEndYear.getValue()
+                    , (Integer) jSpinnerUpdateSentenceEndMonth.getValue()
+                    , (Integer) jSpinnerUpdateSentenceEndDay.getValue());
+            
+            String newPunishment = jTextFieldSentenceUpdate.getText();
+            
+            Sentence newS = new Sentence(prisonerId, cellId, newFrom, newTo, newPunishment);
             
             
-            Sentence sentence = new Sentence(prisonerId, cellId, from, to, punishment);
-            
-            sM.createSentence(sentence);
-            return sentence;
+            sM.updateSentence(oldS, newS);
+            return newS;
             
         }
         
         @Override
         protected void done() {
             try {
-                sentenceModel.updateSentence(get(), jTableSentences.getSelectedRow());
+                model.updateSentence(get(), jTableSentences.getSelectedRow());
             } catch (InterruptedException ex) {
-                logger.log(Level.SEVERE, "create sentence interupted (this should never happen");
+                logger.log(Level.SEVERE, "update sentence interupted (this should never happen");
             } catch (ExecutionException ex) {
-                logger.log(Level.SEVERE, "create sentecne failed thing is wrong");
+                logger.log(Level.SEVERE, "update sentecne failed thing is wrong");
             }
         }
         
@@ -1144,12 +1152,6 @@ public class PrisonFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
     private javax.swing.JSpinner jSpinnerCreateCellCapacity;
     private javax.swing.JSpinner jSpinnerPrisonerCreateDay;
     private javax.swing.JSpinner jSpinnerPrisonerCreateMonth;
@@ -1164,6 +1166,12 @@ public class PrisonFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerSentenceStardMonth;
     private javax.swing.JSpinner jSpinnerSentenceStardYear;
     private javax.swing.JSpinner jSpinnerUpdateCellCapacity;
+    private javax.swing.JSpinner jSpinnerUpdateSentenceEndDay;
+    private javax.swing.JSpinner jSpinnerUpdateSentenceEndMonth;
+    private javax.swing.JSpinner jSpinnerUpdateSentenceEndYear;
+    private javax.swing.JSpinner jSpinnerUpdateSentenceStartDay;
+    private javax.swing.JSpinner jSpinnerUpdateSentenceStartMonth;
+    private javax.swing.JSpinner jSpinnerUpdateSentenceStartYear;
     private javax.swing.JTabbedPane jTabbedPanePrison;
     private javax.swing.JTable jTableCells;
     private javax.swing.JTable jTablePrisoners;

@@ -734,28 +734,28 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinner1" min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartDay" min="-2" pref="41" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jSpinner2" min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartMonth" min="-2" pref="41" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinner3" min="-2" pref="55" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartYear" min="-2" pref="55" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinner4" min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceEndDay" min="-2" pref="41" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jSpinner5" min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceEndMonth" min="-2" pref="41" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinner6" min="-2" pref="55" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceEndYear" min="-2" pref="55" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -797,10 +797,10 @@
                                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                               <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinner3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartDay" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -808,10 +808,10 @@
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSpinner6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSpinner5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceEndMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSpinner4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceEndDay" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -888,7 +888,7 @@
                 <Property name="text" type="java.lang.String" value="Day"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner1">
+            <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceStartDay">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" maximum="31" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -900,7 +900,7 @@
                 <Property name="text" type="java.lang.String" value="Month"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner2">
+            <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceStartMonth">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -912,7 +912,7 @@
                 <Property name="text" type="java.lang.String" value="Year"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner3">
+            <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceStartYear">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="0" maximum="3000" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -924,7 +924,7 @@
                 <Property name="text" type="java.lang.String" value="Day"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner4">
+            <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceEndDay">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" maximum="31" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -936,7 +936,7 @@
                 <Property name="text" type="java.lang.String" value="Month"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner5">
+            <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceEndMonth">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="1" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -948,7 +948,7 @@
                 <Property name="text" type="java.lang.String" value="Year"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner6">
+            <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceEndYear">
               <Properties>
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="0" maximum="3000" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -957,7 +957,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldSentenceUpdate">
               <Properties>
-                <Property name="text" type="java.lang.String" value="punishment"/>
+                <Property name="text" type="java.lang.String" value="Punishment"/>
               </Properties>
             </Component>
           </SubComponents>
