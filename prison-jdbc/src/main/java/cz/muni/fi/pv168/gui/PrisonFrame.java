@@ -21,7 +21,9 @@ import java.util.logging.Logger;
 import cz.muni.fi.pv168.prison.backend.Sentence;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.concurrent.ExecutionException;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 //import javafx.scene.control.Cell;
 /**
  *
@@ -59,8 +61,6 @@ public class PrisonFrame extends javax.swing.JFrame {
     }
     
     private void addAllCells(CellsTableModel model_cells) {
-        Cell cell = new Cell(3,2);
-        cM.createCell(cell);
         List<Cell> ls = cM.findAllCells();
         
         for (Cell c : ls) {
@@ -696,14 +696,36 @@ public class PrisonFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCreatePrisonerActionPerformed
 
     private void jButtonCreateCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCellActionPerformed
-        CellsTableModel model = (CellsTableModel) jTableCells.getModel();
-        int floor = jComboBoxCreateCellFloor.getSelectedIndex() + 1;
-        int capacity = (Integer) jSpinnerCreateCellCapacity.getValue();
-        Cell cell = new Cell(floor,capacity);
-        cM.createCell(cell);
-        model.addCell(cell);
+        CreateCellSwingWorker ccsw = new CreateCellSwingWorker();
+        ccsw.execute();
     }//GEN-LAST:event_jButtonCreateCellActionPerformed
-
+    
+    private class CreateCellSwingWorker extends SwingWorker<Cell,Void> {
+        private CellsTableModel model = (CellsTableModel) jTableCells.getModel();
+        @Override
+        protected Cell doInBackground() throws Exception {
+            
+            int floor = jComboBoxCreateCellFloor.getSelectedIndex() + 1;
+            int capacity = (Integer) jSpinnerCreateCellCapacity.getValue();
+            Cell cell = new Cell(floor,capacity);
+            cM.createCell(cell);
+            
+            return cell;
+        }
+        
+        @Override
+        protected void done() {
+            try {
+                model.addCell(get());
+            } catch (InterruptedException ex) {
+                Logger.getLogger(PrisonFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ExecutionException ex) {
+                Logger.getLogger(PrisonFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }
+    
     private void jButtonDeleteCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCellActionPerformed
         CellsTableModel model = (CellsTableModel) jTableCells.getModel();
         int rowIndex = jTableCells.getSelectedRow();
