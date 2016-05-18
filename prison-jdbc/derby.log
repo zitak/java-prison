@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Wed May 18 14:04:46 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-c3c1-001a-0000036ac780 
+Wed May 18 14:42:38 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-c3e3-ab6c-0000036b9b18 
 on database directory memory:/Users/oldrichkonecny/NetBeansProjects/javaPrison/java-prison/prison-jdbc/books with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
 Loaded from file:/Users/oldrichkonecny/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation

@@ -24,6 +24,8 @@ public class SentencesTableModel extends AbstractTableModel {
         return 5;
     }
     
+    
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Sentence sentence = sentences.get(rowIndex);
