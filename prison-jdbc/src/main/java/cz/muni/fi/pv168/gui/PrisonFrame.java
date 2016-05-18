@@ -846,9 +846,40 @@ public class PrisonFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCreateSentenceActionPerformed
 
     private void jButtonUpdatePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdatePrisonerActionPerformed
-        // TODO add your handling code here:
+        UpdatePrisonerSwingWorker upsw = new UpdatePrisonerSwingWorker();
+        upsw.execute();
     }//GEN-LAST:event_jButtonUpdatePrisonerActionPerformed
-
+    
+    private class UpdatePrisonerSwingWorker extends SwingWorker<Prisoner,Void> {
+        private PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
+        @Override
+        protected Prisoner doInBackground() throws Exception {
+            String name = jTextFieldPrisonerUpdateName.getText();
+            String surname = jTextFieldPrisonerUpdateSurname.getText();
+            int day = (Integer) jSpinnerPrisonerUpdateDay.getValue();
+            int month = (Integer) jSpinnerPrisonerUpdateMonth.getValue();
+            int year = (Integer) jSpinnerPrisonerUpdateYear.getValue();
+            LocalDate born = LocalDate.of(year, month, day);
+            Prisoner prisoner = new Prisoner(name, surname, born);
+            prisoner.setId((Long) model.getValueAt(jTablePrisoners.getSelectedRow(), 0));
+            pM.updatePrisoner(prisoner);
+            return prisoner;
+        }
+        
+        @Override
+        protected void done() {
+            try {
+                model.updatePrisoner(get(), jTablePrisoners.getSelectedRow());
+            } catch (InterruptedException ex) {
+                logger.log(Level.SEVERE, "updating prisoner interupted (this should never happen");
+            } catch (ExecutionException ex) {
+                logger.log(Level.SEVERE, "updating prisoner failed thing is wrong");
+            }
+        }
+        
+    }
+    
+    
     private void jButtonDeletePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletePrisonerActionPerformed
         DeletePrisonerSwingWorker dpsw = new DeletePrisonerSwingWorker();
         dpsw.execute();
