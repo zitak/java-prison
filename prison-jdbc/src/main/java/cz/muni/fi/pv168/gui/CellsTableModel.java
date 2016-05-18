@@ -4,6 +4,8 @@ package cz.muni.fi.pv168.gui;
 import cz.muni.fi.pv168.prison.backend.Cell;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -12,6 +14,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class CellsTableModel extends AbstractTableModel {
     
+    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("cz/muni/fi/pv168/prison/gui/strings", Locale.getDefault());
     private List<Cell> cells = new ArrayList<Cell>();
 
     @Override
@@ -63,11 +66,11 @@ public class CellsTableModel extends AbstractTableModel {
     public String getColumnName(int columnIndex) {
         switch(columnIndex) {
             case 0:
-                return "Id";
+                return resourceBundle.getString("table_cells_header_id");
             case 1:
-                return "Floor";
+                return resourceBundle.getString("table_cells_header_floor");
             case 2:
-                return "Capacity";
+                return resourceBundle.getString("table_cells_header_capacity");
             default:
                 throw new IllegalArgumentException("columnIndex");
         }

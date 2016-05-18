@@ -34,14 +34,19 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPanePrison">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Prison"/>
+      </AccessibilityProperties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelPrisoners">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Prisoners">
-                <Property name="tabTitle" type="java.lang.String" value="Prisoners"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;tabb_prisoner&quot;)" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -49,150 +54,166 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      <Component id="jLabelCellUpdateFloor" min="-2" pref="42" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                       <Component id="jComboBoxUpdateCellFloor" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                      <Component id="jLabel24" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabelCellUpdateCapacity" min="-2" pref="59" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSpinnerUpdateCellCapacity" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButtonRefreshAll" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
+                                      <Component id="jLabelCellCreateFloor" min="-2" pref="45" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jComboBoxCreateCellFloor" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabelCellCreateCapacity" min="-2" pref="59" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSpinnerCreateCellCapacity" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane4" alignment="0" min="-2" pref="521" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane4" min="-2" pref="640" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jButtonCreateCell" pref="165" max="32767" attributes="0"/>
                                   <Component id="jButtonDeleteCell" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jButtonCreateCell" alignment="1" pref="146" max="32767" attributes="0"/>
-                                  <Component id="jButtonUpdateCell" max="32767" attributes="0"/>
+                                  <Component id="jButtonUpdateCell" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextFieldPrisonerCreateName" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldPrisonerCreateSurname" min="-2" pref="128" max="-2" attributes="0"/>
-                                      <EmptySpace pref="87" max="32767" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSpinnerPrisonerCreateDay" min="-2" pref="45" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSpinnerPrisonerCreateMonth" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSpinnerPrisonerCreateYear" min="-2" pref="53" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="jLabelSentenceCreateEnd" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabelCells" min="-2" pref="45" max="-2" attributes="0"/>
-                                      <Component id="jLabelPrisoners" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jTextFieldPrisonerUpdateName" min="-2" pref="102" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldPrisonerUpdateSurname" min="-2" pref="125" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jSpinnerPrisonerUpdateDay" min="-2" pref="39" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabelSentence" min="-2" pref="56" max="-2" attributes="0"/>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                              <Group type="102" alignment="1" attributes="0">
-                                                                  <Component id="jLabel10" max="32767" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jSpinnerSentenceStardDay" min="-2" pref="39" max="-2" attributes="0"/>
-                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jSpinnerSentenceStardMonth" min="-2" pref="39" max="-2" attributes="0"/>
-                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jSpinnerSentenceStardYear" min="-2" pref="53" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <Group type="102" alignment="1" attributes="0">
-                                                                  <Component id="jLabel13" min="-2" pref="27" max="-2" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jSpinnerSentenceEndDay" min="-2" pref="39" max="-2" attributes="0"/>
-                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jSpinnerSentenceEndMonth" min="-2" pref="39" max="-2" attributes="0"/>
-                                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                                                  <EmptySpace max="-2" attributes="0"/>
-                                                                  <Component id="jSpinnerSentenceEndYear" min="-2" pref="53" max="-2" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jSpinnerPrisonerUpdateMonth" min="-2" pref="39" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jSpinnerPrisonerUpdateYear" min="-2" pref="53" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldSentenceCreatePunishment" min="-2" pref="181" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabelSentenceCreateStart" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButtonDeletePrisoner" max="32767" attributes="0"/>
-                                  <Component id="jButtonCreatePrisoner" max="32767" attributes="0"/>
-                                  <Component id="jButtonUpdatePrisoner" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jButtonCreateSentence" min="-2" pref="146" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelSentenceCreateEndDay" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSpinnerSentenceEndDay" min="-2" pref="39" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelSentenceCreateStartDay" min="-2" pref="34" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSpinnerSentenceStardDay" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelSentenceCreateEndMonth" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSpinnerSentenceEndMonth" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelSentenceCreateStartMonth" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jSpinnerSentenceStardMonth" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelSentenceCreateStartYear" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="jLabelSentenceCreateEndYear" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jSpinnerSentenceEndYear" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="jSpinnerSentenceStardYear" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTextFieldSentenceCreatePunishment" min="-2" pref="177" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonCreateSentence" min="-2" pref="165" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jTextFieldPrisonerUpdateName" min="-2" pref="102" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jTextFieldPrisonerUpdateSurname" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerUpdateBorn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerUpdateDay" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSpinnerPrisonerUpdateDay" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerUpdateMonth" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSpinnerPrisonerUpdateMonth" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerUpdateYear" min="-2" pref="34" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSpinnerPrisonerUpdateYear" min="-2" pref="53" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jTextFieldPrisonerCreateName" min="-2" pref="102" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jTextFieldPrisonerCreateSurname" min="-2" pref="128" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerCreateBorn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerCreateDay" min="-2" pref="33" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSpinnerPrisonerCreateDay" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerCreateMonth" min="-2" pref="37" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSpinnerPrisonerCreateMonth" min="-2" pref="39" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabelPrisonerCreateYear" min="-2" pref="33" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSpinnerPrisonerCreateYear" min="-2" pref="53" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jScrollPane2" alignment="0" min="-2" pref="640" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelCells" min="-2" pref="45" max="-2" attributes="0"/>
+                                          <Component id="jLabelPrisoners" min="-2" pref="61" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButtonCreatePrisoner" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jButtonDeletePrisoner" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jButtonUpdatePrisoner" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jSeparator2" min="-2" pref="784" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelSentence" min="-2" pref="96" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -201,105 +222,116 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabelPrisoners" min="-2" pref="26" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldPrisonerCreateSurname" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldPrisonerCreateName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonCreatePrisoner" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPrisonerCreateDay" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerPrisonerCreateDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPrisonerCreateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerPrisonerCreateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPrisonerCreateYear" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jSpinnerPrisonerCreateYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPrisonerCreateBorn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace pref="156" max="32767" attributes="0"/>
                               <Component id="jButtonDeletePrisoner" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="94" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldPrisonerUpdateName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPrisonerUpdateSurname" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonUpdatePrisoner" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerPrisonerUpdateDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerPrisonerUpdateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerPrisonerUpdateYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="1" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabelSentence" min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jButtonCreateSentence" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextFieldPrisonerUpdateName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPrisonerUpdateSurname" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonUpdatePrisoner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jSeparator1" min="-2" pref="1" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldSentenceCreatePunishment" min="-2" pref="74" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jLabelSentence" min="-2" pref="26" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel10" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateStart" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateStartDay" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                           <Component id="jSpinnerSentenceStardDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateStartMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSpinnerSentenceStardMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateStartYear" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSpinnerSentenceStardYear" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateEndDay" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSpinnerSentenceEndDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateEndMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSpinnerSentenceEndMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSpinnerSentenceEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelSentenceCreateEnd" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jButtonCreateSentence" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldSentenceCreatePunishment" alignment="3" min="-2" pref="58" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jSeparator2" min="-2" pref="2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabelCells" min="-2" pref="23" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jSpinnerCreateCellCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonCreateCell" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCellCreateCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxCreateCellFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCellCreateFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane4" min="-2" pref="128" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Component id="jButtonDeleteCell" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jButtonUpdateCell" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonRefreshAll" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelCellUpdateFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxUpdateCellFloor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelCellUpdateCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jSpinnerUpdateCellCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                      </Group>
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
-                      <Component id="jSeparator2" min="-2" pref="2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabelCells" min="-2" pref="23" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jComboBoxCreateCellFloor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinnerPrisonerUpdateYear" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jSpinnerCreateCellCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonCreateCell" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinnerPrisonerUpdateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPrisonerUpdateYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPrisonerUpdateMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinnerPrisonerUpdateDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPrisonerUpdateDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPrisonerUpdateBorn" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane4" min="-2" pref="128" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jButtonDeleteCell" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jComboBoxUpdateCellFloor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jSpinnerUpdateCellCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonUpdateCell" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonRefreshAll" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
@@ -331,7 +363,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButtonCreatePrisoner">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create Prisoner"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_prisoner_create&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreatePrisonerActionPerformed"/>
@@ -339,22 +373,30 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelPrisoners">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Prisoners"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_prisoners&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPrisonerCreateName">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create Name"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;text_prisoner_create_name&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPrisonerCreateSurname">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create Surname"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;text_prisoner_create_surname&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonDeletePrisoner">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Prisoner"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_prisoner_delete&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeletePrisonerActionPerformed"/>
@@ -362,17 +404,23 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPrisonerUpdateName">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Name"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;text_prisoner_update_name&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPrisonerUpdateSurname">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Surname"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;text_prisoner_update_surname&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonUpdatePrisoner">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Prisoner"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_prisoner_update&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdatePrisonerActionPerformed"/>
@@ -380,7 +428,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCreateSentence">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create Sentence"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_sentence_create&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreateSentenceActionPerformed"/>
@@ -388,18 +438,20 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelCells">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cells"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_cells&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxCreateCellFloor">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
-                    <StringItem index="0" value="Floor 1"/>
-                    <StringItem index="1" value="Floor 2"/>
-                    <StringItem index="2" value="Floor 3"/>
-                    <StringItem index="3" value="Floor 4"/>
-                    <StringItem index="4" value="Floor 5"/>
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -462,7 +514,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCreateCell">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create Cell"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_cell_create&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreateCellActionPerformed"/>
@@ -470,7 +524,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonDeleteCell">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Cell"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_cell_delete&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteCellActionPerformed"/>
@@ -478,7 +534,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonUpdateCell">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Cell"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_cell_update&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateCellActionPerformed"/>
@@ -486,17 +544,23 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelSentence">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sentence"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_sentences&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="jLabelCellCreateCapacity">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Capacity:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_capacity&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerCreateDay">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_day&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerPrisonerCreateDay">
@@ -506,9 +570,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerCreateMonth">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Month"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_month&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerPrisonerCreateMonth">
@@ -518,9 +584,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerCreateYear">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Year"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_year&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerPrisonerCreateYear">
@@ -530,9 +598,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerUpdateDay">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_day&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerPrisonerUpdateDay">
@@ -542,9 +612,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerUpdateMonth">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Month"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_month&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerPrisonerUpdateMonth">
@@ -554,9 +626,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerUpdateYear">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Year"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_year&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerPrisonerUpdateYear">
@@ -566,19 +640,25 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateStart">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Start Date"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_start&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateEnd">
               <Properties>
-                <Property name="text" type="java.lang.String" value="End Date"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_end&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateStartDay">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_day&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSentenceStardDay">
@@ -588,9 +668,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateStartMonth">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Month"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_month&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSentenceStardMonth">
@@ -600,9 +682,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateStartYear">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Year"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_year&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSentenceStardYear">
@@ -612,9 +696,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateEndDay">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_day&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSentenceEndDay">
@@ -624,9 +710,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateEndMonth">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Month"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_month&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSentenceEndMonth">
@@ -636,9 +724,11 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
+            <Component class="javax.swing.JLabel" name="jLabelSentenceCreateEndYear">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Year"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_year&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerSentenceEndYear">
@@ -650,15 +740,19 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonRefreshAll">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Refresh All"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_refresh&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRefreshAllActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel24">
+            <Component class="javax.swing.JLabel" name="jLabelCellUpdateCapacity">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Capacity:"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_capacity&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerUpdateCellCapacity">
@@ -672,11 +766,11 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
-                    <StringItem index="0" value="Floor 1"/>
-                    <StringItem index="1" value="Floor 2"/>
-                    <StringItem index="2" value="Floor 3"/>
-                    <StringItem index="3" value="Floor 4"/>
-                    <StringItem index="4" value="Floor 5"/>
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                    <StringItem index="3" value="4"/>
+                    <StringItem index="4" value="5"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -694,19 +788,51 @@
             <Component class="javax.swing.JTextField" name="jTextFieldSentenceCreatePunishment">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Punishment"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;text_sentence_punishment&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSentenceCreatePunishmentActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCellCreateFloor">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;floor&quot;)" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelCellUpdateFloor">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;floor&quot;)" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerCreateBorn">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_born&quot;)" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPrisonerUpdateBorn">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_born&quot;)" type="code"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelSentences">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Sentences">
-                <Property name="tabTitle" type="java.lang.String" value="Sentences"/>
+              <JTabbedPaneConstraints tabName="&lt;User Code&gt;">
+                <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;tabb_sentence&quot;)" type="code"/>
+                </Property>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -722,47 +848,53 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane3" alignment="0" min="-2" pref="521" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel21" min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="jLabel18" min="-2" pref="33" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceEndDay" min="-2" pref="41" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceStartDay" min="-2" pref="41" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceStartMonth" min="-2" pref="41" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceStartYear" min="-2" pref="55" max="-2" attributes="0"/>
+                                              <Component id="jLabel22" min="-2" pref="35" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartDay" min="-2" pref="41" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceEndDay" min="-2" pref="41" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceEndMonth" min="-2" pref="41" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceEndYear" min="-2" pref="55" max="-2" attributes="0"/>
+                                              <Component id="jLabel19" min="-2" pref="37" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldSentenceUpdate" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jSpinnerUpdateSentenceEndMonth" min="-2" pref="39" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jLabel23" min="-2" pref="33" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceEndYear" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jSpinnerUpdateSentenceStartMonth" min="-2" pref="41" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" min="-2" pref="35" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jSpinnerUpdateSentenceStartYear" min="-2" pref="61" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jTextFieldSentenceUpdate" min="-2" pref="164" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jScrollPane3" min="-2" pref="640" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="145" max="32767" attributes="0"/>
+                              <EmptySpace pref="44" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jButtonSentenceUpdate" pref="149" max="32767" attributes="0"/>
                                   <Component id="jButtonSentenceDelete" max="32767" attributes="0"/>
@@ -782,40 +914,45 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane3" min="-2" pref="168" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                       <Component id="jButtonSentenceDelete" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane3" min="-2" pref="168" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceStartYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceStartMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jSpinnerUpdateSentenceStartDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceStartDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSpinnerUpdateSentenceEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jSpinnerUpdateSentenceEndMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jSpinnerUpdateSentenceEndDay" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jTextFieldSentenceUpdate" min="-2" pref="64" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceStartYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceStartMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceEndYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jSpinnerUpdateSentenceEndMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jTextFieldSentenceUpdate" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -823,7 +960,7 @@
                               <Component id="jButtonSentenceUpdate" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="394" max="32767" attributes="0"/>
+                      <EmptySpace pref="455" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -854,12 +991,16 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabelSentences">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sentences"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_sentences&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonSentenceDelete">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Sentence"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_sentence_delete&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSentenceDeleteActionPerformed"/>
@@ -867,7 +1008,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonSentenceUpdate">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Sentence"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;button_sentence_update&quot;)" type="code"/>
+                </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSentenceUpdateActionPerformed"/>
@@ -875,17 +1018,23 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Start Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_start&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
-                <Property name="text" type="java.lang.String" value="End Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_end&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_day&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceStartDay">
@@ -897,7 +1046,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Month"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_month&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceStartMonth">
@@ -909,7 +1060,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Year"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_year&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceStartYear">
@@ -921,7 +1074,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Day"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_day&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceEndDay">
@@ -933,7 +1088,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Month"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_month&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceEndMonth">
@@ -945,7 +1102,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Year"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;label_year&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerUpdateSentenceEndYear">
@@ -957,7 +1116,9 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldSentenceUpdate">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Punishment"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="resourceBundle.getString(&quot;text_sentence_punishment&quot;)" type="code"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>

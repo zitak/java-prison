@@ -4,6 +4,8 @@ import cz.muni.fi.pv168.prison.backend.Prisoner;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -12,6 +14,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class PrisonersTableModel extends AbstractTableModel {
     
+    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("cz/muni/fi/pv168/prison/gui/strings", Locale.getDefault());
     private List<Prisoner> prisoners = new ArrayList<Prisoner>();
 
     @Override
@@ -66,13 +69,13 @@ public class PrisonersTableModel extends AbstractTableModel {
     public String getColumnName(int columnIndex) {
         switch(columnIndex) {
             case 0:
-                return "Id";
+                return resourceBundle.getString("table_prisoners_header_id");
             case 1:
-                return "Name";
+                return resourceBundle.getString("table_prisoners_header_name");
             case 2:
-                return "Surname";
+                return resourceBundle.getString("table_prisoners_header_surname");
             case 3:
-                return "Born";
+                return resourceBundle.getString("table_prisoners_header_born");
             default:
                 throw new IllegalArgumentException("columnIndex");
         }

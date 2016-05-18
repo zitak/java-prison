@@ -22,6 +22,8 @@ import cz.muni.fi.pv168.prison.backend.Sentence;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
@@ -46,6 +48,8 @@ public class PrisonFrame extends javax.swing.JFrame {
         addAllPrisoners(model_prisoners);
         
     }
+    
+    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("cz/muni/fi/pv168/prison/gui/strings", Locale.getDefault());
     private static final Logger logger = Logger.getLogger(
             PrisonFrame.class.getName());
     private DataSource dataSource = getDatasource();
@@ -126,7 +130,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         jButtonUpdatePrisoner = new javax.swing.JButton();
         jButtonCreateSentence = new javax.swing.JButton();
         jLabelCells = new javax.swing.JLabel();
-        jComboBoxCreateCellFloor = new javax.swing.JComboBox<String>();
+        jComboBoxCreateCellFloor = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableCells = new javax.swing.JTable();
         jSpinnerCreateCellCapacity = new javax.swing.JSpinner();
@@ -134,40 +138,44 @@ public class PrisonFrame extends javax.swing.JFrame {
         jButtonDeleteCell = new javax.swing.JButton();
         jButtonUpdateCell = new javax.swing.JButton();
         jLabelSentence = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelCellCreateCapacity = new javax.swing.JLabel();
+        jLabelPrisonerCreateDay = new javax.swing.JLabel();
         jSpinnerPrisonerCreateDay = new javax.swing.JSpinner();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelPrisonerCreateMonth = new javax.swing.JLabel();
         jSpinnerPrisonerCreateMonth = new javax.swing.JSpinner();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelPrisonerCreateYear = new javax.swing.JLabel();
         jSpinnerPrisonerCreateYear = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelPrisonerUpdateDay = new javax.swing.JLabel();
         jSpinnerPrisonerUpdateDay = new javax.swing.JSpinner();
-        jLabel6 = new javax.swing.JLabel();
+        jLabelPrisonerUpdateMonth = new javax.swing.JLabel();
         jSpinnerPrisonerUpdateMonth = new javax.swing.JSpinner();
-        jLabel7 = new javax.swing.JLabel();
+        jLabelPrisonerUpdateYear = new javax.swing.JLabel();
         jSpinnerPrisonerUpdateYear = new javax.swing.JSpinner();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabelSentenceCreateStart = new javax.swing.JLabel();
+        jLabelSentenceCreateEnd = new javax.swing.JLabel();
+        jLabelSentenceCreateStartDay = new javax.swing.JLabel();
         jSpinnerSentenceStardDay = new javax.swing.JSpinner();
-        jLabel11 = new javax.swing.JLabel();
+        jLabelSentenceCreateStartMonth = new javax.swing.JLabel();
         jSpinnerSentenceStardMonth = new javax.swing.JSpinner();
-        jLabel12 = new javax.swing.JLabel();
+        jLabelSentenceCreateStartYear = new javax.swing.JLabel();
         jSpinnerSentenceStardYear = new javax.swing.JSpinner();
-        jLabel13 = new javax.swing.JLabel();
+        jLabelSentenceCreateEndDay = new javax.swing.JLabel();
         jSpinnerSentenceEndDay = new javax.swing.JSpinner();
-        jLabel14 = new javax.swing.JLabel();
+        jLabelSentenceCreateEndMonth = new javax.swing.JLabel();
         jSpinnerSentenceEndMonth = new javax.swing.JSpinner();
-        jLabel15 = new javax.swing.JLabel();
+        jLabelSentenceCreateEndYear = new javax.swing.JLabel();
         jSpinnerSentenceEndYear = new javax.swing.JSpinner();
         jButtonRefreshAll = new javax.swing.JButton();
-        jLabel24 = new javax.swing.JLabel();
+        jLabelCellUpdateCapacity = new javax.swing.JLabel();
         jSpinnerUpdateCellCapacity = new javax.swing.JSpinner();
-        jComboBoxUpdateCellFloor = new javax.swing.JComboBox<String>();
+        jComboBoxUpdateCellFloor = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jTextFieldSentenceCreatePunishment = new javax.swing.JTextField();
+        jLabelCellCreateFloor = new javax.swing.JLabel();
+        jLabelCellUpdateFloor = new javax.swing.JLabel();
+        jLabelPrisonerCreateBorn = new javax.swing.JLabel();
+        jLabelPrisonerUpdateBorn = new javax.swing.JLabel();
         jPanelSentences = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableSentences = new javax.swing.JTable();
@@ -193,47 +201,47 @@ public class PrisonFrame extends javax.swing.JFrame {
         jTablePrisoners.setModel(new PrisonersTableModel());
         jScrollPane2.setViewportView(jTablePrisoners);
 
-        jButtonCreatePrisoner.setText("Create Prisoner");
+        jButtonCreatePrisoner.setText(resourceBundle.getString("button_prisoner_create"));
         jButtonCreatePrisoner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreatePrisonerActionPerformed(evt);
             }
         });
 
-        jLabelPrisoners.setText("Prisoners");
+        jLabelPrisoners.setText(resourceBundle.getString("label_prisoners"));
 
-        jTextFieldPrisonerCreateName.setText("Create Name");
+        jTextFieldPrisonerCreateName.setText(resourceBundle.getString("text_prisoner_create_name"));
 
-        jTextFieldPrisonerCreateSurname.setText("Create Surname");
+        jTextFieldPrisonerCreateSurname.setText(resourceBundle.getString("text_prisoner_create_surname"));
 
-        jButtonDeletePrisoner.setText("Delete Prisoner");
+        jButtonDeletePrisoner.setText(resourceBundle.getString("button_prisoner_delete"));
         jButtonDeletePrisoner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeletePrisonerActionPerformed(evt);
             }
         });
 
-        jTextFieldPrisonerUpdateName.setText("Update Name");
+        jTextFieldPrisonerUpdateName.setText(resourceBundle.getString("text_prisoner_update_name"));
 
-        jTextFieldPrisonerUpdateSurname.setText("Update Surname");
+        jTextFieldPrisonerUpdateSurname.setText(resourceBundle.getString("text_prisoner_update_surname"));
 
-        jButtonUpdatePrisoner.setText("Update Prisoner");
+        jButtonUpdatePrisoner.setText(resourceBundle.getString("button_prisoner_update"));
         jButtonUpdatePrisoner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdatePrisonerActionPerformed(evt);
             }
         });
 
-        jButtonCreateSentence.setText("Create Sentence");
+        jButtonCreateSentence.setText(resourceBundle.getString("button_sentence_create"));
         jButtonCreateSentence.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateSentenceActionPerformed(evt);
             }
         });
 
-        jLabelCells.setText("Cells");
+        jLabelCells.setText(resourceBundle.getString("label_cells"));
 
-        jComboBoxCreateCellFloor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Floor 1", "Floor 2", "Floor 3", "Floor 4", "Floor 5" }));
+        jComboBoxCreateCellFloor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
         jComboBoxCreateCellFloor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCreateCellFloorActionPerformed(evt);
@@ -245,95 +253,95 @@ public class PrisonFrame extends javax.swing.JFrame {
 
         jSpinnerCreateCellCapacity.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jButtonCreateCell.setText("Create Cell");
+        jButtonCreateCell.setText(resourceBundle.getString("button_cell_create"));
         jButtonCreateCell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateCellActionPerformed(evt);
             }
         });
 
-        jButtonDeleteCell.setText("Delete Cell");
+        jButtonDeleteCell.setText(resourceBundle.getString("button_cell_delete"));
         jButtonDeleteCell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteCellActionPerformed(evt);
             }
         });
 
-        jButtonUpdateCell.setText("Update Cell");
+        jButtonUpdateCell.setText(resourceBundle.getString("button_cell_update"));
         jButtonUpdateCell.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateCellActionPerformed(evt);
             }
         });
 
-        jLabelSentence.setText("Sentence");
+        jLabelSentence.setText(resourceBundle.getString("label_sentences"));
 
-        jLabel1.setText("Capacity:");
+        jLabelCellCreateCapacity.setText(resourceBundle.getString("label_capacity"));
 
-        jLabel2.setText("Day");
+        jLabelPrisonerCreateDay.setText(resourceBundle.getString("label_day"));
 
         jSpinnerPrisonerCreateDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
-        jLabel3.setText("Month");
+        jLabelPrisonerCreateMonth.setText(resourceBundle.getString("label_month"));
 
         jSpinnerPrisonerCreateMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jLabel4.setText("Year");
+        jLabelPrisonerCreateYear.setText(resourceBundle.getString("label_year"));
 
         jSpinnerPrisonerCreateYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
-        jLabel5.setText("Day");
+        jLabelPrisonerUpdateDay.setText(resourceBundle.getString("label_day"));
 
         jSpinnerPrisonerUpdateDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
-        jLabel6.setText("Month");
+        jLabelPrisonerUpdateMonth.setText(resourceBundle.getString("label_month"));
 
         jSpinnerPrisonerUpdateMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jLabel7.setText("Year");
+        jLabelPrisonerUpdateYear.setText(resourceBundle.getString("label_year"));
 
         jSpinnerPrisonerUpdateYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
-        jLabel8.setText("Start Date");
+        jLabelSentenceCreateStart.setText(resourceBundle.getString("label_start"));
 
-        jLabel9.setText("End Date");
+        jLabelSentenceCreateEnd.setText(resourceBundle.getString("label_end"));
 
-        jLabel10.setText("Day");
+        jLabelSentenceCreateStartDay.setText(resourceBundle.getString("label_day"));
 
         jSpinnerSentenceStardDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
-        jLabel11.setText("Month");
+        jLabelSentenceCreateStartMonth.setText(resourceBundle.getString("label_month"));
 
         jSpinnerSentenceStardMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jLabel12.setText("Year");
+        jLabelSentenceCreateStartYear.setText(resourceBundle.getString("label_year"));
 
         jSpinnerSentenceStardYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
-        jLabel13.setText("Day");
+        jLabelSentenceCreateEndDay.setText(resourceBundle.getString("label_day"));
 
         jSpinnerSentenceEndDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
-        jLabel14.setText("Month");
+        jLabelSentenceCreateEndMonth.setText(resourceBundle.getString("label_month"));
 
         jSpinnerSentenceEndMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jLabel15.setText("Year");
+        jLabelSentenceCreateEndYear.setText(resourceBundle.getString("label_year"));
 
         jSpinnerSentenceEndYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
-        jButtonRefreshAll.setText("Refresh All");
+        jButtonRefreshAll.setText(resourceBundle.getString("button_refresh"));
         jButtonRefreshAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRefreshAllActionPerformed(evt);
             }
         });
 
-        jLabel24.setText("Capacity:");
+        jLabelCellUpdateCapacity.setText(resourceBundle.getString("label_capacity"));
 
         jSpinnerUpdateCellCapacity.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jComboBoxUpdateCellFloor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Floor 1", "Floor 2", "Floor 3", "Floor 4", "Floor 5" }));
+        jComboBoxUpdateCellFloor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
         jComboBoxUpdateCellFloor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxUpdateCellFloorActionPerformed(evt);
@@ -341,279 +349,308 @@ public class PrisonFrame extends javax.swing.JFrame {
         });
 
         jTextFieldSentenceCreatePunishment.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextFieldSentenceCreatePunishment.setText("Punishment");
+        jTextFieldSentenceCreatePunishment.setText(resourceBundle.getString("text_sentence_punishment"));
         jTextFieldSentenceCreatePunishment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSentenceCreatePunishmentActionPerformed(evt);
             }
         });
 
+        jLabelCellCreateFloor.setText(resourceBundle.getString("floor"));
+
+        jLabelCellUpdateFloor.setText(resourceBundle.getString("floor"));
+
+        jLabelPrisonerCreateBorn.setText(resourceBundle.getString("label_born"));
+
+        jLabelPrisonerUpdateBorn.setText(resourceBundle.getString("label_born"));
+
         javax.swing.GroupLayout jPanelPrisonersLayout = new javax.swing.GroupLayout(jPanelPrisoners);
         jPanelPrisoners.setLayout(jPanelPrisonersLayout);
         jPanelPrisonersLayout.setHorizontalGroup(
             jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSeparator2)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
-                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jLabelCellUpdateFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)
                                 .addComponent(jComboBoxUpdateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCellUpdateCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonRefreshAll))
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addComponent(jLabelCellCreateFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCellCreateCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerCreateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonDeleteCell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonCreateCell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonCreateCell, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(jButtonDeleteCell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonUpdateCell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
                         .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                                .addComponent(jTextFieldPrisonerCreateName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPrisonerCreateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerPrisonerCreateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerPrisonerCreateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerPrisonerCreateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelCells, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
-                                    .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
-                                            .addComponent(jTextFieldPrisonerUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextFieldPrisonerUpdateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel5)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jSpinnerPrisonerUpdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                                            .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabelSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                                                    .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel8)
-                                                        .addComponent(jLabel9))
-                                                    .addGap(43, 43, 43)
-                                                    .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                                                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(jSpinnerSentenceStardDay, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(jLabel11)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(jSpinnerSentenceStardMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(jLabel12)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(jSpinnerSentenceStardYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                                                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(jSpinnerSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(jLabel14)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(jSpinnerSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                            .addComponent(jLabel15)
-                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                            .addComponent(jSpinnerSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                            .addGap(0, 15, Short.MAX_VALUE)))
-                                    .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                                            .addGap(23, 23, 23)
-                                            .addComponent(jLabel6)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jSpinnerPrisonerUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jLabel7)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jSpinnerPrisonerUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jTextFieldSentenceCreatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jScrollPane2)))
-                        .addGap(81, 81, 81)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabelSentenceCreateEnd))
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabelSentenceCreateStart)))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonDeletePrisoner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addComponent(jLabelSentenceCreateEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinnerSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addComponent(jLabelSentenceCreateStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinnerSentenceStardDay, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addComponent(jLabelSentenceCreateEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinnerSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addComponent(jLabelSentenceCreateStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinnerSentenceStardMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelSentenceCreateStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelSentenceCreateEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSpinnerSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinnerSentenceStardYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldSentenceCreatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCreateSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                        .addComponent(jTextFieldPrisonerUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldPrisonerUpdateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jLabelPrisonerUpdateBorn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabelPrisonerUpdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinnerPrisonerUpdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabelPrisonerUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinnerPrisonerUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelPrisonerUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinnerPrisonerUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                        .addComponent(jTextFieldPrisonerCreateName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldPrisonerCreateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabelPrisonerCreateBorn)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabelPrisonerCreateDay, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinnerPrisonerCreateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabelPrisonerCreateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinnerPrisonerCreateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelPrisonerCreateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinnerPrisonerCreateYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelCells, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonCreatePrisoner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonUpdatePrisoner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPrisonersLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButtonCreateSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButtonDeletePrisoner, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jButtonUpdatePrisoner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(25, 25, 25))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabelSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelPrisonersLayout.setVerticalGroup(
             jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelPrisoners, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(15, 15, 15)
                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldPrisonerCreateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPrisonerCreateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCreatePrisoner)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabelPrisonerCreateDay)
                     .addComponent(jSpinnerPrisonerCreateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabelPrisonerCreateMonth)
                     .addComponent(jSpinnerPrisonerCreateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jSpinnerPrisonerCreateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelPrisonerCreateYear)
+                    .addComponent(jSpinnerPrisonerCreateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPrisonerCreateBorn))
                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jButtonDeletePrisoner))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addComponent(jButtonDeletePrisoner)
+                        .addGap(48, 48, 48))
                     .addGroup(jPanelPrisonersLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPrisonerUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldPrisonerUpdateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUpdatePrisoner)
-                    .addComponent(jLabel5)
-                    .addComponent(jSpinnerPrisonerUpdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jSpinnerPrisonerUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jSpinnerPrisonerUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jButtonCreateSentence))
-                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldPrisonerUpdateName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPrisonerUpdateSurname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonUpdatePrisoner))
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldSentenceCreatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelSentence, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
                                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelSentenceCreateStart)
+                                    .addComponent(jLabelSentenceCreateStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSpinnerSentenceStardDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11)
+                                    .addComponent(jLabelSentenceCreateStartMonth)
                                     .addComponent(jSpinnerSentenceStardMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12)
+                                    .addComponent(jLabelSentenceCreateStartYear)
                                     .addComponent(jSpinnerSentenceStardYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel13)
+                                    .addComponent(jLabelSentenceCreateEndDay)
                                     .addComponent(jSpinnerSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14)
+                                    .addComponent(jLabelSentenceCreateEndMonth)
                                     .addComponent(jSpinnerSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15)
+                                    .addComponent(jLabelSentenceCreateEndYear)
                                     .addComponent(jSpinnerSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelCells, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelSentenceCreateEnd)))
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButtonCreateSentence)
+                                    .addComponent(jTextFieldSentenceCreatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelCells, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jSpinnerCreateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCreateCell)
+                            .addComponent(jLabelCellCreateCapacity)
+                            .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelCellCreateFloor))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(jButtonDeleteCell)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButtonUpdateCell)
+                                .addComponent(jButtonRefreshAll))
+                            .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelCellUpdateFloor)
+                                .addComponent(jComboBoxUpdateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelCellUpdateCapacity)
+                                .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jSpinnerPrisonerUpdateYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jSpinnerCreateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonCreateCell)
-                        .addComponent(jLabel1)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelPrisonersLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jButtonDeleteCell)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxUpdateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24)
-                    .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUpdateCell)
-                    .addComponent(jButtonRefreshAll))
+                        .addComponent(jSpinnerPrisonerUpdateMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelPrisonerUpdateYear)
+                        .addComponent(jLabelPrisonerUpdateMonth)
+                        .addComponent(jSpinnerPrisonerUpdateDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelPrisonerUpdateDay)
+                        .addComponent(jLabelPrisonerUpdateBorn)))
                 .addGap(15, 15, 15))
         );
 
-        jTabbedPanePrison.addTab("Prisoners", jPanelPrisoners);
+        jTabbedPanePrison.addTab(resourceBundle.getString("tabb_prisoner"), jPanelPrisoners);
 
         jTableSentences.setModel(new SentencesTableModel());
         jTableSentences.setColumnSelectionAllowed(true);
         jScrollPane3.setViewportView(jTableSentences);
         jTableSentences.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        jLabelSentences.setText("Sentences");
+        jLabelSentences.setText(resourceBundle.getString("label_sentences"));
 
-        jButtonSentenceDelete.setText("Delete Sentence");
+        jButtonSentenceDelete.setText(resourceBundle.getString("button_sentence_delete"));
         jButtonSentenceDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSentenceDeleteActionPerformed(evt);
             }
         });
 
-        jButtonSentenceUpdate.setText("Update Sentence");
+        jButtonSentenceUpdate.setText(resourceBundle.getString("button_sentence_update"));
         jButtonSentenceUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSentenceUpdateActionPerformed(evt);
             }
         });
 
-        jLabel16.setText("Start Day");
+        jLabel16.setText(resourceBundle.getString("label_start"));
 
-        jLabel17.setText("End Day");
+        jLabel17.setText(resourceBundle.getString("label_end"));
 
-        jLabel18.setText("Day");
+        jLabel18.setText(resourceBundle.getString("label_day"));
 
         jSpinnerUpdateSentenceStartDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
-        jLabel19.setText("Month");
+        jLabel19.setText(resourceBundle.getString("label_month"));
 
         jSpinnerUpdateSentenceStartMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jLabel20.setText("Year");
+        jLabel20.setText(resourceBundle.getString("label_year"));
 
         jSpinnerUpdateSentenceStartYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
-        jLabel21.setText("Day");
+        jLabel21.setText(resourceBundle.getString("label_day"));
 
         jSpinnerUpdateSentenceEndDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
-        jLabel22.setText("Month");
+        jLabel22.setText(resourceBundle.getString("label_month"));
 
         jSpinnerUpdateSentenceEndMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
-        jLabel23.setText("Year");
+        jLabel23.setText(resourceBundle.getString("label_year"));
 
         jSpinnerUpdateSentenceEndYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
-        jTextFieldSentenceUpdate.setText("Punishment");
+        jTextFieldSentenceUpdate.setText(resourceBundle.getString("text_sentence_punishment"));
 
         javax.swing.GroupLayout jPanelSentencesLayout = new javax.swing.GroupLayout(jPanelSentences);
         jPanelSentences.setLayout(jPanelSentencesLayout);
@@ -626,41 +663,43 @@ public class PrisonFrame extends javax.swing.JFrame {
                         .addComponent(jLabelSentences, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSentencesLayout.createSequentialGroup()
-                        .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSentencesLayout.createSequentialGroup()
+                        .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelSentencesLayout.createSequentialGroup()
                                 .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel16))
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17))
                                 .addGap(37, 37, 37)
                                 .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelSentencesLayout.createSequentialGroup()
-                                        .addComponent(jLabel18)
+                                        .addComponent(jSpinnerUpdateSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelSentencesLayout.createSequentialGroup()
                                         .addComponent(jSpinnerUpdateSentenceStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel19)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                                        .addComponent(jSpinnerUpdateSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jSpinnerUpdateSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                    .addGroup(jPanelSentencesLayout.createSequentialGroup()
                                         .addComponent(jSpinnerUpdateSentenceStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel20)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinnerUpdateSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanelSentencesLayout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinnerUpdateSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel22)
+                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinnerUpdateSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel23)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jSpinnerUpdateSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldSentenceUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                                        .addComponent(jSpinnerUpdateSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldSentenceUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                         .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButtonSentenceUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                             .addComponent(jButtonSentenceDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -675,40 +714,43 @@ public class PrisonFrame extends javax.swing.JFrame {
                     .addGroup(jPanelSentencesLayout.createSequentialGroup()
                         .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelSentencesLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelSentencesLayout.createSequentialGroup()
                                 .addGap(77, 77, 77)
-                                .addComponent(jButtonSentenceDelete)))
+                                .addComponent(jButtonSentenceDelete))
+                            .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelSentencesLayout.createSequentialGroup()
-                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel20)
-                                        .addComponent(jSpinnerUpdateSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSpinnerUpdateSentenceStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel19)
-                                        .addComponent(jSpinnerUpdateSentenceStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel18)))
+                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jSpinnerUpdateSentenceStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel16))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel17)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jSpinnerUpdateSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinnerUpdateSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel22)
                                     .addComponent(jSpinnerUpdateSentenceEndDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel21)))
+                            .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jSpinnerUpdateSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerUpdateSentenceStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jSpinnerUpdateSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerUpdateSentenceEndMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jTextFieldSentenceUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelSentencesLayout.createSequentialGroup()
                         .addGap(210, 210, 210)
                         .addComponent(jButtonSentenceUpdate)))
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addContainerGap(455, Short.MAX_VALUE))
         );
 
-        jTabbedPanePrison.addTab("Sentences", jPanelSentences);
+        jTabbedPanePrison.addTab(resourceBundle.getString("tabb_sentence"), jPanelSentences);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -723,6 +765,8 @@ public class PrisonFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPanePrison)
         );
+
+        jTabbedPanePrison.getAccessibleContext().setAccessibleName("Prison");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCreatePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreatePrisonerActionPerformed
@@ -1080,24 +1124,21 @@ public class PrisonFrame extends javax.swing.JFrame {
             } catch (InterruptedException ex) {
                 logger.log(Level.SEVERE, "delete sentence interupted (this should never happen");
             } catch (ExecutionException ex) {
-                logger.log(Level.SEVERE, "delete sentecne failed thing is wrong");
+                logger.log(Level.SEVERE, "delete sentence failed thing is wrong");
             }
         }
         
     }
-    
-    
-    
     
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 PrisonFrame frame = new PrisonFrame();
-                frame.setPreferredSize(new Dimension(850, 700));
+                frame.setPreferredSize(new Dimension(900, 750));
                 frame.getContentPane().add(new PrisonTabbedPane(), BorderLayout.CENTER);
                 frame.setDefaultCloseOperation(PrisonFrame.EXIT_ON_CLOSE);
-                frame.setTitle("Prison");
+                frame.setTitle(resourceBundle.getString("main_title"));
                 frame.pack();
                 frame.setVisible(true);
             }
@@ -1117,33 +1158,37 @@ public class PrisonFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonUpdatePrisoner;
     private javax.swing.JComboBox<String> jComboBoxCreateCellFloor;
     private javax.swing.JComboBox<String> jComboBoxUpdateCellFloor;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCellCreateCapacity;
+    private javax.swing.JLabel jLabelCellCreateFloor;
+    private javax.swing.JLabel jLabelCellUpdateCapacity;
+    private javax.swing.JLabel jLabelCellUpdateFloor;
     private javax.swing.JLabel jLabelCells;
+    private javax.swing.JLabel jLabelPrisonerCreateBorn;
+    private javax.swing.JLabel jLabelPrisonerCreateDay;
+    private javax.swing.JLabel jLabelPrisonerCreateMonth;
+    private javax.swing.JLabel jLabelPrisonerCreateYear;
+    private javax.swing.JLabel jLabelPrisonerUpdateBorn;
+    private javax.swing.JLabel jLabelPrisonerUpdateDay;
+    private javax.swing.JLabel jLabelPrisonerUpdateMonth;
+    private javax.swing.JLabel jLabelPrisonerUpdateYear;
     private javax.swing.JLabel jLabelPrisoners;
     private javax.swing.JLabel jLabelSentence;
+    private javax.swing.JLabel jLabelSentenceCreateEnd;
+    private javax.swing.JLabel jLabelSentenceCreateEndDay;
+    private javax.swing.JLabel jLabelSentenceCreateEndMonth;
+    private javax.swing.JLabel jLabelSentenceCreateEndYear;
+    private javax.swing.JLabel jLabelSentenceCreateStart;
+    private javax.swing.JLabel jLabelSentenceCreateStartDay;
+    private javax.swing.JLabel jLabelSentenceCreateStartMonth;
+    private javax.swing.JLabel jLabelSentenceCreateStartYear;
     private javax.swing.JLabel jLabelSentences;
     private javax.swing.JPanel jPanelPrisoners;
     private javax.swing.JPanel jPanelSentences;

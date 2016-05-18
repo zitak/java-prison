@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import cz.muni.fi.pv168.prison.backend.Sentence;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -13,6 +15,7 @@ import cz.muni.fi.pv168.prison.backend.Sentence;
  */
 public class SentencesTableModel extends AbstractTableModel {
     private List<Sentence> sentences = new ArrayList<Sentence>();
+    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("cz/muni/fi/pv168/prison/gui/strings", Locale.getDefault());
     
     @Override
     public int getRowCount() {
@@ -69,15 +72,15 @@ public class SentencesTableModel extends AbstractTableModel {
     public String getColumnName(int columnIndex) {
         switch(columnIndex) {
             case 0:
-                return "Prisoner's Id";
+                return resourceBundle.getString("table_sentences_header_prisoner_id");
             case 1:
-                return "Cell's Id";
+                return resourceBundle.getString("table_sentences_header_cell_id");
             case 2:
-                return "Starting Day";
+                return resourceBundle.getString("table_sentences_header_start");
             case 3:
-                return "Ending Day";
+                return resourceBundle.getString("table_sentences_header_end");
             case 4:
-                return "Description";
+                return resourceBundle.getString("table_sentences_header_punishment");
             default:
                 throw new IllegalArgumentException("columnIndex");
         }
