@@ -173,8 +173,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         jTableSentences = new javax.swing.JTable();
         jLabelSentences = new javax.swing.JLabel();
         jButtonSentenceDelete = new javax.swing.JButton();
-        jComboBoxSentenceUpdatePunishment = new javax.swing.JComboBox<String>();
-        jButton1 = new javax.swing.JButton();
+        jButtonSentenceUpdate = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -189,6 +188,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         jSpinner5 = new javax.swing.JSpinner();
         jLabel23 = new javax.swing.JLabel();
         jSpinner6 = new javax.swing.JSpinner();
+        jTextFieldSentenceUpdate = new javax.swing.JTextField();
 
         jTablePrisoners.setModel(new PrisonersTableModel());
         jScrollPane2.setViewportView(jTablePrisoners);
@@ -572,10 +572,18 @@ public class PrisonFrame extends javax.swing.JFrame {
         jLabelSentences.setText("Sentences");
 
         jButtonSentenceDelete.setText("Delete Sentence");
+        jButtonSentenceDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSentenceDeleteActionPerformed(evt);
+            }
+        });
 
-        jComboBoxSentenceUpdatePunishment.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jButton1.setText("Update Sentence");
+        jButtonSentenceUpdate.setText("Update Sentence");
+        jButtonSentenceUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSentenceUpdateActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("Start Day");
 
@@ -605,6 +613,8 @@ public class PrisonFrame extends javax.swing.JFrame {
 
         jSpinner6.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
+        jTextFieldSentenceUpdate.setText("punishment");
+
         javax.swing.GroupLayout jPanelSentencesLayout = new javax.swing.GroupLayout(jPanelSentences);
         jPanelSentences.setLayout(jPanelSentencesLayout);
         jPanelSentencesLayout.setHorizontalGroup(
@@ -618,7 +628,7 @@ public class PrisonFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSentencesLayout.createSequentialGroup()
                         .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSentencesLayout.createSequentialGroup()
                                 .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
                                     .addComponent(jLabel16))
@@ -648,11 +658,11 @@ public class PrisonFrame extends javax.swing.JFrame {
                                         .addComponent(jLabel23)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(50, 50, 50)
-                                .addComponent(jComboBoxSentenceUpdatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldSentenceUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                         .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(jButtonSentenceUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                             .addComponent(jButtonSentenceDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(34, 34, 34))))
         );
@@ -672,29 +682,30 @@ public class PrisonFrame extends javax.swing.JFrame {
                                 .addComponent(jButtonSentenceDelete)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel20)
-                                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel19)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel18)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel23)
-                            .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel22)
-                            .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21)))
+                            .addGroup(jPanelSentencesLayout.createSequentialGroup()
+                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel20)
+                                        .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel19)
+                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel18)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21)))
+                            .addComponent(jTextFieldSentenceUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelSentencesLayout.createSequentialGroup()
                         .addGap(210, 210, 210)
-                        .addGroup(jPanelSentencesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxSentenceUpdatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
-                .addContainerGap(364, Short.MAX_VALUE))
+                        .addComponent(jButtonSentenceUpdate)))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
 
         jTabbedPanePrison.addTab("Sentences", jPanelSentences);
@@ -981,6 +992,94 @@ public class PrisonFrame extends javax.swing.JFrame {
     private void jTextFieldSentenceCreatePunishmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSentenceCreatePunishmentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSentenceCreatePunishmentActionPerformed
+
+    private void jButtonSentenceDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSentenceDeleteActionPerformed
+        DeleteSentenceSwingWorker dssw = new DeleteSentenceSwingWorker();
+        dssw.execute();
+    }//GEN-LAST:event_jButtonSentenceDeleteActionPerformed
+
+    private void jButtonSentenceUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSentenceUpdateActionPerformed
+        UpdateSentenceSwingWorker ussw = new UpdateSentenceSwingWorker();
+        ussw.execute();
+    }//GEN-LAST:event_jButtonSentenceUpdateActionPerformed
+    
+    private class UpdateSentenceSwingWorker extends SwingWorker<Sentence,Void> {
+        private SentencesTableModel sentenceModel = (SentencesTableModel) jTableSentences.getModel();
+        private PrisonersTableModel prisonersModel = (PrisonersTableModel) jTablePrisoners.getModel();
+        private CellsTableModel cellsModel = (CellsTableModel) jTableCells.getModel();
+        @Override
+        protected Sentence doInBackground() throws Exception {
+            Long prisonerId = (Long) prisonersModel.getValueAt(jTablePrisoners.getSelectedRow(), 0);
+            Long cellId = (Long) cellsModel.getValueAt(jTableCells.getSelectedRow(), 0);
+            LocalDate from = LocalDate.of((Integer) jSpinnerSentenceStardYear.getValue()
+                    ,(Integer) jSpinnerSentenceStardMonth.getValue()
+                    , (Integer) jSpinnerSentenceStardDay.getValue());
+            LocalDate to = LocalDate.of((Integer) jSpinnerSentenceEndYear.getValue()
+                    , (Integer) jSpinnerSentenceEndMonth.getValue()
+                    , (Integer) jSpinnerSentenceEndDay.getValue());
+            String punishment = jTextFieldSentenceCreatePunishment.getText();
+            
+            
+            Sentence sentence = new Sentence(prisonerId, cellId, from, to, punishment);
+            
+            sM.createSentence(sentence);
+            return sentence;
+            
+        }
+        
+        @Override
+        protected void done() {
+            try {
+                sentenceModel.updateSentence(get(), jTableSentences.getSelectedRow());
+            } catch (InterruptedException ex) {
+                logger.log(Level.SEVERE, "create sentence interupted (this should never happen");
+            } catch (ExecutionException ex) {
+                logger.log(Level.SEVERE, "create sentecne failed thing is wrong");
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+    private class DeleteSentenceSwingWorker extends SwingWorker<Integer,Void> {
+        private SentencesTableModel sentenceModel = (SentencesTableModel) jTableSentences.getModel();
+        
+        @Override
+        protected Integer doInBackground() throws Exception {
+            int index = jTableSentences.getSelectedRow();
+            Long prisonerId = (Long) sentenceModel.getValueAt(index, 0);
+            Long cellId = (Long) sentenceModel.getValueAt(index, 1);
+            LocalDate from = (LocalDate) sentenceModel.getValueAt(index, 2);
+            LocalDate to = (LocalDate) sentenceModel.getValueAt(index, 3);
+            String punishment = (String) sentenceModel.getValueAt(index, 4);
+            
+            Sentence sentence = new Sentence(prisonerId, cellId, from, to ,punishment);
+            
+            sM.deleteSentence(sentence);
+            
+            
+            return index;
+            
+        }
+        
+        @Override
+        protected void done() {
+            try {
+                sentenceModel.deleteSentence(get());
+            } catch (InterruptedException ex) {
+                logger.log(Level.SEVERE, "delete sentence interupted (this should never happen");
+            } catch (ExecutionException ex) {
+                logger.log(Level.SEVERE, "delete sentecne failed thing is wrong");
+            }
+        }
+        
+    }
+    
+    
+    
     
     public static void main(String args[]) {
         /* Create and display the form */
@@ -998,7 +1097,6 @@ public class PrisonFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonCreateCell;
     private javax.swing.JButton jButtonCreatePrisoner;
     private javax.swing.JButton jButtonCreateSentence;
@@ -1006,10 +1104,10 @@ public class PrisonFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDeletePrisoner;
     private javax.swing.JButton jButtonRefreshAll;
     private javax.swing.JButton jButtonSentenceDelete;
+    private javax.swing.JButton jButtonSentenceUpdate;
     private javax.swing.JButton jButtonUpdateCell;
     private javax.swing.JButton jButtonUpdatePrisoner;
     private javax.swing.JComboBox<String> jComboBoxCreateCellFloor;
-    private javax.swing.JComboBox<String> jComboBoxSentenceUpdatePunishment;
     private javax.swing.JComboBox<String> jComboBoxUpdateCellFloor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1075,5 +1173,6 @@ public class PrisonFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPrisonerUpdateName;
     private javax.swing.JTextField jTextFieldPrisonerUpdateSurname;
     private javax.swing.JTextField jTextFieldSentenceCreatePunishment;
+    private javax.swing.JTextField jTextFieldSentenceUpdate;
     // End of variables declaration//GEN-END:variables
 }

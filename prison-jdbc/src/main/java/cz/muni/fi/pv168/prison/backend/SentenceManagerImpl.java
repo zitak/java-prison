@@ -386,6 +386,7 @@ public class SentenceManagerImpl implements SentenceManager {
 
         //checkCell(sentence.getCellId());
         //checkPrisoner(sentence.getPrisonerId());
+        
 
         if (sentence.getStartDay() == null) {
             throw new ValidationException("Error, startDay in sentence is null");

@@ -51,6 +51,16 @@ public class SentencesTableModel extends AbstractTableModel {
         fireTableRowsInserted(lastRow, lastRow);
     }
     
+    public void deleteSentence(int index) {
+        sentences.remove(index);
+        fireTableRowsDeleted(index, index);
+    }
+    
+    public void updateSentence(Sentence sentence, int index) {
+        this.sentences.set(index, sentence);
+        fireTableRowsUpdated(index, index);
+    }
+    
     public void refresh() {
         this.sentences.clear();
     }
@@ -119,7 +129,7 @@ public class SentencesTableModel extends AbstractTableModel {
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         switch(columnIndex) {
             case 0:
-                return true;
+                return false;
             case 1:
                 return true;
             case 2:
