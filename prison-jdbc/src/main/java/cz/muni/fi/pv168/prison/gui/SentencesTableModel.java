@@ -1,5 +1,5 @@
 
-package cz.muni.fi.pv168.gui;
+package cz.muni.fi.pv168.prison.gui;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

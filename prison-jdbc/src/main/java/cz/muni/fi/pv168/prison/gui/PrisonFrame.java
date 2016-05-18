@@ -1,5 +1,5 @@
 
-package cz.muni.fi.pv168.gui;
+package cz.muni.fi.pv168.prison.gui;
 
 import cz.muni.fi.pv168.common.DBUtils;
 import cz.muni.fi.pv168.prison.backend.Cell;
@@ -12,20 +12,20 @@ import cz.muni.fi.pv168.prison.backend.SentenceManager;
 import cz.muni.fi.pv168.prison.backend.SentenceManagerImpl;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import java.util.logging.Logger;
 import cz.muni.fi.pv168.prison.backend.Sentence;
-import java.time.DateTimeException;
+
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
-import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 //import javafx.scene.control.Cell;
 /**
@@ -33,6 +33,14 @@ import javax.swing.SwingWorker;
  * @author Zita
  */
 public class PrisonFrame extends javax.swing.JFrame {
+
+    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("cz/muni/fi/pv168/prison/gui/strings", Locale.getDefault());
+    private static final Logger logger = Logger.getLogger(
+            PrisonFrame.class.getName());
+    private DataSource dataSource = getDatasource();
+    private SentenceManager sM = new SentenceManagerImpl(this.dataSource);
+    private CellManager cM = new CellManagerImpl(this.dataSource);
+    private PrisonerManager pM = new PrisonerManagerImpl(this.dataSource);
 
     /**
      * Creates new form PrisonFrame
@@ -48,56 +56,71 @@ public class PrisonFrame extends javax.swing.JFrame {
         addAllPrisoners(model_prisoners);
         
     }
-    
-    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("cz/muni/fi/pv168/prison/gui/strings", Locale.getDefault());
-    private static final Logger logger = Logger.getLogger(
-            PrisonFrame.class.getName());
-    private DataSource dataSource = getDatasource();
-    private SentenceManager sM = new SentenceManagerImpl(this.dataSource);
-    private CellManager cM = new CellManagerImpl(this.dataSource);
-    private PrisonerManager pM = new PrisonerManagerImpl(this.dataSource);
-    
+
+    /**
+     * method find all sentences in db and fill them to SentencesTableModel
+     * @param model_sentences SentencesTableModel
+     */
     private void addAllSentences(SentencesTableModel model_sentences) {
+        logger.log(Level.INFO, "adding all sentences from DB to sentenceModel");
         List<Sentence> ls = sM.findAllSentences();
-        
+
         for (Sentence s : ls) {
             model_sentences.addSentence(s);
         }
     }
-    
+
+    /**
+     * method find all cells in db and fill them to CellsTableModel
+     * @param model_cells CellsTableModel
+     */
     private void addAllCells(CellsTableModel model_cells) {
+        logger.log(Level.INFO, "adding all cells from DB to cellModel");
         List<Cell> ls = cM.findAllCells();
-        
+
+
         for (Cell c : ls) {
             model_cells.addCell(c);
         }
     }
-    
+
+    /**
+     * method find all prisoners in db and fill them to PrisonersTableModel
+     * @param model_prisoners prisonersTableModel
+     */
     private void addAllPrisoners(PrisonersTableModel model_prisoners) {
         /*Prisoner prisoner = new Prisoner("Oldrich", "Konecny", LocalDate.of(1994, 8, 1));
         pM.createPrisoner(prisoner);*/
+        logger.log(Level.INFO, "adding all prisoners from DB to prisonerModel");
         List<Prisoner> ls = pM.findAllPrisoners();
-        
+
+
         for (Prisoner p : ls) {
             model_prisoners.addPrisoner(p);
         }
     }
-    
+
+    /**
+     * method create new DataSource, url, user and password is taken from config file
+     * method call method witch execute sql script for creating tables
+     * @return DataSource
+     */
     private DataSource getDatasource() {
-        /*
+
         Properties myConf = new Properties();
-        
+        logger.log(Level.INFO, "setting up dataSource");
         try {
-            myConf.load(Main.class.getResourceAsStream("src/main/resources/cz/muni/fi/pv168/prison/gui/configuration.properties"));
+            myConf.load(PrisonFrame.class.getResourceAsStream("myConfig.properties"));
         } catch (IOException ex) {
             logger.log(Level.SEVERE, "cannot reach configuration.properties file", ex);
         }
-        */
+
         BasicDataSource ds = new BasicDataSource();
-        ds.setUrl("jdbc:derby:memory:books;create=true");//myConf.getProperty("jdbc.url"));
-        ds.setUsername("makeup");//myConf.getProperty("jdbc.user"));
-        ds.setPassword("heslo");//myConf.getProperty("jdbc.password"));
-        
+        ds.setUrl(myConf.getProperty("jdbc.url"));
+        ds.setUsername(myConf.getProperty("jdbc.user"));
+        ds.setPassword(myConf.getProperty("jdbc.password"));
+
+        logger.log(Level.INFO, "creating tables in database");
         try {
             DBUtils.executeSqlScript(ds,SentenceManager.class.getResource("createTables.sql"));
         } catch (SQLException ex) {
@@ -154,11 +177,11 @@ public class PrisonFrame extends javax.swing.JFrame {
         jLabelSentenceCreateStart = new javax.swing.JLabel();
         jLabelSentenceCreateEnd = new javax.swing.JLabel();
         jLabelSentenceCreateStartDay = new javax.swing.JLabel();
-        jSpinnerSentenceStardDay = new javax.swing.JSpinner();
+        jSpinnerSentenceStartDay = new javax.swing.JSpinner();
         jLabelSentenceCreateStartMonth = new javax.swing.JLabel();
-        jSpinnerSentenceStardMonth = new javax.swing.JSpinner();
+        jSpinnerSentenceStartMonth = new javax.swing.JSpinner();
         jLabelSentenceCreateStartYear = new javax.swing.JLabel();
-        jSpinnerSentenceStardYear = new javax.swing.JSpinner();
+        jSpinnerSentenceStartYear = new javax.swing.JSpinner();
         jLabelSentenceCreateEndDay = new javax.swing.JLabel();
         jSpinnerSentenceEndDay = new javax.swing.JSpinner();
         jLabelSentenceCreateEndMonth = new javax.swing.JLabel();
@@ -308,15 +331,15 @@ public class PrisonFrame extends javax.swing.JFrame {
 
         jLabelSentenceCreateStartDay.setText(resourceBundle.getString("label_day"));
 
-        jSpinnerSentenceStardDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
+        jSpinnerSentenceStartDay.setModel(new javax.swing.SpinnerNumberModel(1, 1, 31, 1));
 
         jLabelSentenceCreateStartMonth.setText(resourceBundle.getString("label_month"));
 
-        jSpinnerSentenceStardMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        jSpinnerSentenceStartMonth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
         jLabelSentenceCreateStartYear.setText(resourceBundle.getString("label_year"));
 
-        jSpinnerSentenceStardYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
+        jSpinnerSentenceStartYear.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3000, 1));
 
         jLabelSentenceCreateEndDay.setText(resourceBundle.getString("label_day"));
 
@@ -417,7 +440,7 @@ public class PrisonFrame extends javax.swing.JFrame {
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
                                 .addComponent(jLabelSentenceCreateStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerSentenceStardDay, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jSpinnerSentenceStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
@@ -427,7 +450,7 @@ public class PrisonFrame extends javax.swing.JFrame {
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
                                 .addComponent(jLabelSentenceCreateStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinnerSentenceStardMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jSpinnerSentenceStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(12, 12, 12)
                         .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelSentenceCreateStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -435,7 +458,7 @@ public class PrisonFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSpinnerSentenceEndYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinnerSentenceStardYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSpinnerSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldSentenceCreatePunishment, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -542,11 +565,11 @@ public class PrisonFrame extends javax.swing.JFrame {
                                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabelSentenceCreateStart)
                                     .addComponent(jLabelSentenceCreateStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinnerSentenceStardDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerSentenceStartDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelSentenceCreateStartMonth)
-                                    .addComponent(jSpinnerSentenceStardMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSpinnerSentenceStartMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelSentenceCreateStartYear)
-                                    .addComponent(jSpinnerSentenceStardYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jSpinnerSentenceStartYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabelSentenceCreateEndDay)
@@ -770,20 +793,34 @@ public class PrisonFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCreatePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreatePrisonerActionPerformed
-        CreatePrisonerSwingWorker cpsw = new CreatePrisonerSwingWorker();
+        logger.log(Level.INFO, "trying to create prisoner");
+        String name = jTextFieldPrisonerCreateName.getText();
+        String surname = jTextFieldPrisonerCreateSurname.getText();
+        int day = (Integer) jSpinnerPrisonerCreateDay.getValue();
+        int month = (Integer) jSpinnerPrisonerCreateMonth.getValue();
+        int year = (Integer) jSpinnerPrisonerCreateYear.getValue();
+        LocalDate born = LocalDate.of(year, month, day);
+        PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
+        CreatePrisonerSwingWorker cpsw = new CreatePrisonerSwingWorker(model,name, surname, born);
         cpsw.execute();
     }//GEN-LAST:event_jButtonCreatePrisonerActionPerformed
-    
     private class CreatePrisonerSwingWorker extends SwingWorker<Prisoner,Void> {
-        private PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
+        private PrisonersTableModel model;
+        private String name;
+        private String surname;
+        private LocalDate born;
+
+        public CreatePrisonerSwingWorker(PrisonersTableModel model, String name, String surname, LocalDate born) {
+            this.model = model;
+            this.name =  name;
+            this.surname = surname;
+            this.born = born;
+        }
+
         @Override
         protected Prisoner doInBackground() throws Exception {
-            String name = jTextFieldPrisonerCreateName.getText();
-            String surname = jTextFieldPrisonerCreateSurname.getText();
-            int day = (Integer) jSpinnerPrisonerCreateDay.getValue();
-            int month = (Integer) jSpinnerPrisonerCreateMonth.getValue();
-            int year = (Integer) jSpinnerPrisonerCreateYear.getValue();
-            LocalDate born = LocalDate.of(year, month, day);
+
+
             Prisoner prisoner = new Prisoner(name, surname, born);
             pM.createPrisoner(prisoner);
             return prisoner;
@@ -804,17 +841,26 @@ public class PrisonFrame extends javax.swing.JFrame {
     
     
     private void jButtonCreateCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCellActionPerformed
-        CreateCellSwingWorker ccsw = new CreateCellSwingWorker();
+        logger.log(Level.INFO, "trying to create cell");
+        CellsTableModel model = (CellsTableModel) jTableCells.getModel();
+        int floor = jComboBoxCreateCellFloor.getSelectedIndex() + 1;
+        int capacity = (Integer) jSpinnerCreateCellCapacity.getValue();
+        CreateCellSwingWorker ccsw = new CreateCellSwingWorker(model, floor, capacity);
         ccsw.execute();
     }//GEN-LAST:event_jButtonCreateCellActionPerformed
-    
     private class CreateCellSwingWorker extends SwingWorker<Cell,Void> {
-        private CellsTableModel model = (CellsTableModel) jTableCells.getModel();
+        private int floor;
+        private CellsTableModel model;
+        private int capacity;
+
+        public CreateCellSwingWorker(CellsTableModel model, int floor, int capacity) {
+            this.floor = floor;
+            this.capacity = capacity;
+            this.model = model;
+        }
+
         @Override
         protected Cell doInBackground() throws Exception {
-            
-            int floor = jComboBoxCreateCellFloor.getSelectedIndex() + 1;
-            int capacity = (Integer) jSpinnerCreateCellCapacity.getValue();
             Cell cell = new Cell(floor,capacity);
             cM.createCell(cell);
             
@@ -833,18 +879,31 @@ public class PrisonFrame extends javax.swing.JFrame {
         }
         
     }
-    
+
+
     private void jButtonDeleteCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCellActionPerformed
-        DeleteCellSwingWorker dcsw = new DeleteCellSwingWorker();
+        logger.log(Level.INFO, "trying to delete cell");
+        CellsTableModel model = (CellsTableModel) jTableCells.getModel();
+        int rowIndex = jTableCells.getSelectedRow();
+        Long id = (Long) model.getValueAt(rowIndex, 0);
+
+        DeleteCellSwingWorker dcsw = new DeleteCellSwingWorker(model, rowIndex, id);
         dcsw.execute();
     }//GEN-LAST:event_jButtonDeleteCellActionPerformed
-
     private class DeleteCellSwingWorker extends SwingWorker<Integer,Void> {
-        private CellsTableModel model = (CellsTableModel) jTableCells.getModel();
+        private CellsTableModel model;
+        private Long id;
+        private int rowIndex;
+
+        public DeleteCellSwingWorker(CellsTableModel model, int rowIndex, Long id) {
+            this.model = model;
+            this.id = id;
+            this.rowIndex = rowIndex;
+        }
+
         @Override
         protected Integer doInBackground() throws Exception {
-            int rowIndex = jTableCells.getSelectedRow();
-            Long id = (Long) model.getValueAt(rowIndex, 0);
+
             cM.deleteCell(cM.getCellById(id));
             
             return rowIndex;
@@ -865,26 +924,32 @@ public class PrisonFrame extends javax.swing.JFrame {
     
     
     private void jButtonUpdateCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateCellActionPerformed
+        logger.log(Level.INFO, "trying to update cell");
         CellsTableModel model = (CellsTableModel) jTableCells.getModel();
         int rowIndex = jTableCells.getSelectedRow();
         Long id = (Long) model.getValueAt(rowIndex, 0);
         int floor = jComboBoxUpdateCellFloor.getSelectedIndex() + 1;
         int capacity = (Integer) jSpinnerUpdateCellCapacity.getValue();
-        Cell cell = new Cell(floor, capacity);
-        cell.setId(id);
-        cM.updateCell(cell);
-        model.updateCell(cell, rowIndex);
-        
+        UpdateCellSwingWorker ucsw = new UpdateCellSwingWorker(model, rowIndex, id, floor, capacity);
+        ucsw.execute();
     }//GEN-LAST:event_jButtonUpdateCellActionPerformed
-
     private class UpdateCellSwingWorker extends SwingWorker<Cell,Void> {
-        private CellsTableModel model = (CellsTableModel) jTableCells.getModel();
+        private CellsTableModel model;
+        private int rowIndex;
+        private Long id;
+        private int floor;
+        private int capacity;
+
+        public UpdateCellSwingWorker(CellsTableModel model, int rowIndex, Long id, int floor, int capacity) {
+            this. model = model;
+            this.rowIndex = rowIndex;
+            this.id = id;
+            this.floor = floor;
+            this.capacity = capacity;
+        }
+
         @Override
         protected Cell doInBackground() throws Exception {
-            int rowIndex = jTableCells.getSelectedRow();
-            Long id = (Long) model.getValueAt(rowIndex, 0);
-            int floor = jComboBoxUpdateCellFloor.getSelectedIndex() + 1;
-            int capacity = (Integer) jSpinnerUpdateCellCapacity.getValue();
             Cell cell = new Cell(floor, capacity);
             cell.setId(id);
             cM.updateCell(cell);
@@ -894,7 +959,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         @Override
         protected void done() {
             try {
-                model.updateCell(get(), jTableCells.getSelectedRow());
+                model.updateCell(get(), rowIndex);
             } catch (InterruptedException ex) {
                 logger.log(Level.SEVERE, "creating prisoner interupted (this should never happen");
             } catch (ExecutionException ex) {
@@ -904,37 +969,55 @@ public class PrisonFrame extends javax.swing.JFrame {
         
     }
     
-    
-    
+
     private void jButtonCreateSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateSentenceActionPerformed
-        CreateSentenceSwingWorker cssw = new CreateSentenceSwingWorker();
+        logger.log(Level.INFO, "trying to create sentence");
+        CellsTableModel cellsModel = (CellsTableModel) jTableCells.getModel();
+        PrisonersTableModel prisonersModel = (PrisonersTableModel) jTablePrisoners.getModel();
+        SentencesTableModel sentenceModel = (SentencesTableModel) jTableSentences.getModel();
+        Long prisonerId = (Long) prisonersModel.getValueAt(jTablePrisoners.getSelectedRow(), 0);
+        Long cellId = (Long) cellsModel.getValueAt(jTableCells.getSelectedRow(), 0);
+        LocalDate from = LocalDate.of((Integer) jSpinnerSentenceStartYear.getValue()
+                ,(Integer) jSpinnerSentenceStartMonth.getValue()
+                , (Integer) jSpinnerSentenceStartDay.getValue());
+        LocalDate to = LocalDate.of((Integer) jSpinnerSentenceEndYear.getValue()
+                , (Integer) jSpinnerSentenceEndMonth.getValue()
+                , (Integer) jSpinnerSentenceEndDay.getValue());
+        String punishment = jTextFieldSentenceCreatePunishment.getText();
+        CreateSentenceSwingWorker cssw = new CreateSentenceSwingWorker(cellsModel, prisonersModel, sentenceModel, prisonerId
+            , cellId, from, to, punishment);
         cssw.execute();
     }//GEN-LAST:event_jButtonCreateSentenceActionPerformed
-
     private class CreateSentenceSwingWorker extends SwingWorker<Sentence,Void> {
-        private SentencesTableModel sentenceModel = (SentencesTableModel) jTableSentences.getModel();
-        private PrisonersTableModel prisonersModel = (PrisonersTableModel) jTablePrisoners.getModel();
-        private CellsTableModel cellsModel = (CellsTableModel) jTableCells.getModel();
+        private CellsTableModel cellsModel;
+        private PrisonersTableModel prisonersModel;
+        private SentencesTableModel sentenceModel;
+        private Long prisonerId;
+        private Long cellId;
+        private LocalDate from;
+        private LocalDate to;
+        private String punishment;
+
+        public CreateSentenceSwingWorker(CellsTableModel cellsModel, PrisonersTableModel prisonersModel
+                ,SentencesTableModel sentenceModel, Long prisonerId
+                , Long cellId, LocalDate from, LocalDate to, String punishment) {
+            this.cellsModel = cellsModel;
+            this.prisonersModel = prisonersModel;
+            this.sentenceModel = sentenceModel;
+            this.prisonerId = prisonerId;
+            this.cellId = cellId;
+            this.from = from;
+            this.to = to;
+            this.punishment = punishment;
+        }
+
         @Override
         protected Sentence doInBackground() throws Exception {
-            Long prisonerId = (Long) prisonersModel.getValueAt(jTablePrisoners.getSelectedRow(), 0);
-            Long cellId = (Long) cellsModel.getValueAt(jTableCells.getSelectedRow(), 0);
-            LocalDate from = LocalDate.of((Integer) jSpinnerSentenceStardYear.getValue()
-                    ,(Integer) jSpinnerSentenceStardMonth.getValue()
-                    , (Integer) jSpinnerSentenceStardDay.getValue());
-            LocalDate to = LocalDate.of((Integer) jSpinnerSentenceEndYear.getValue()
-                    , (Integer) jSpinnerSentenceEndMonth.getValue()
-                    , (Integer) jSpinnerSentenceEndDay.getValue());
-            String punishment = jTextFieldSentenceCreatePunishment.getText();
-            
-            
             Sentence sentence = new Sentence(prisonerId, cellId, from, to, punishment);
-            
             sM.createSentence(sentence);
             return sentence;
-            
         }
-        
+
         @Override
         protected void done() {
             try {
@@ -950,22 +1033,42 @@ public class PrisonFrame extends javax.swing.JFrame {
     
     
     private void jButtonUpdatePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdatePrisonerActionPerformed
-        UpdatePrisonerSwingWorker upsw = new UpdatePrisonerSwingWorker();
+        logger.log(Level.INFO, "trying to update prisoner");
+        String name = jTextFieldPrisonerUpdateName.getText();
+        String surname = jTextFieldPrisonerUpdateSurname.getText();
+        int day = (Integer) jSpinnerPrisonerUpdateDay.getValue();
+        int month = (Integer) jSpinnerPrisonerUpdateMonth.getValue();
+        int year = (Integer) jSpinnerPrisonerUpdateYear.getValue();
+        PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
+        LocalDate born = LocalDate.of(year, month, day);
+        Long id = (Long) model.getValueAt(jTablePrisoners.getSelectedRow(), 0);
+        int rowIndex = jTablePrisoners.getSelectedRow();
+
+        UpdatePrisonerSwingWorker upsw = new UpdatePrisonerSwingWorker(model, name, surname, born, id, rowIndex);
         upsw.execute();
     }//GEN-LAST:event_jButtonUpdatePrisonerActionPerformed
-    
     private class UpdatePrisonerSwingWorker extends SwingWorker<Prisoner,Void> {
-        private PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
+        private PrisonersTableModel model;
+        private String name;
+        private String surname;
+        private LocalDate born;
+        private Long id;
+        private int rowIndex;
+
+        public UpdatePrisonerSwingWorker(PrisonersTableModel model, String name, String surname, LocalDate born, Long id, int rowIndex) {
+            this.model = model;
+            this.name = name;
+            this.surname = surname;
+            this.born = born;
+            this.id = id;
+            this.rowIndex = rowIndex;
+        }
+
         @Override
         protected Prisoner doInBackground() throws Exception {
-            String name = jTextFieldPrisonerUpdateName.getText();
-            String surname = jTextFieldPrisonerUpdateSurname.getText();
-            int day = (Integer) jSpinnerPrisonerUpdateDay.getValue();
-            int month = (Integer) jSpinnerPrisonerUpdateMonth.getValue();
-            int year = (Integer) jSpinnerPrisonerUpdateYear.getValue();
-            LocalDate born = LocalDate.of(year, month, day);
+
             Prisoner prisoner = new Prisoner(name, surname, born);
-            prisoner.setId((Long) model.getValueAt(jTablePrisoners.getSelectedRow(), 0));
+            prisoner.setId(id);
             pM.updatePrisoner(prisoner);
             return prisoner;
         }
@@ -973,7 +1076,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         @Override
         protected void done() {
             try {
-                model.updatePrisoner(get(), jTablePrisoners.getSelectedRow());
+                model.updatePrisoner(get(), rowIndex);
             } catch (InterruptedException ex) {
                 logger.log(Level.SEVERE, "updating prisoner interupted (this should never happen");
             } catch (ExecutionException ex) {
@@ -985,16 +1088,27 @@ public class PrisonFrame extends javax.swing.JFrame {
     
     
     private void jButtonDeletePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletePrisonerActionPerformed
-        DeletePrisonerSwingWorker dpsw = new DeletePrisonerSwingWorker();
+        logger.log(Level.INFO, "trying to delete prisoner");
+        PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
+        int index = jTablePrisoners.getSelectedRow();
+        Long id = (Long) model.getValueAt(index, 0);
+        DeletePrisonerSwingWorker dpsw = new DeletePrisonerSwingWorker(model, id, index);
         dpsw.execute();
     }//GEN-LAST:event_jButtonDeletePrisonerActionPerformed
-
     private class DeletePrisonerSwingWorker extends SwingWorker<Integer,Void> {
-        private PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
+        private PrisonersTableModel model;
+        private int index;
+        private Long id;
+
+        public DeletePrisonerSwingWorker(PrisonersTableModel model, Long id, int index) {
+            this.model = model;
+            this.id = id;
+            this.index = index;
+        }
+
         @Override
         protected Integer doInBackground() throws Exception {
-            int index = jTablePrisoners.getSelectedRow();
-            Long id = (Long) model.getValueAt(index, 0);
+
             pM.deletePrisoner(pM.getPrisonerById(id));
             return index;
         }
@@ -1038,85 +1152,36 @@ public class PrisonFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSentenceCreatePunishmentActionPerformed
 
     private void jButtonSentenceDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSentenceDeleteActionPerformed
-        DeleteSentenceSwingWorker dssw = new DeleteSentenceSwingWorker();
+        logger.log(Level.INFO, "trying to delete sentence");
+        SentencesTableModel sentenceModel = (SentencesTableModel) jTableSentences.getModel();
+        int index = jTableSentences.getSelectedRow();
+        Long prisonerId = (Long) sentenceModel.getValueAt(index, 0);
+        Long cellId = (Long) sentenceModel.getValueAt(index, 1);
+        LocalDate from = (LocalDate) sentenceModel.getValueAt(index, 2);
+        LocalDate to = (LocalDate) sentenceModel.getValueAt(index, 3);
+        String punishment = (String) sentenceModel.getValueAt(index, 4);
+        Sentence sentence = new Sentence(prisonerId, cellId, from, to ,punishment);
+
+        DeleteSentenceSwingWorker dssw = new DeleteSentenceSwingWorker(sentenceModel, sentence, index);
         dssw.execute();
     }//GEN-LAST:event_jButtonSentenceDeleteActionPerformed
-
-    private void jButtonSentenceUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSentenceUpdateActionPerformed
-        UpdateSentenceSwingWorker ussw = new UpdateSentenceSwingWorker();
-        ussw.execute();
-    }//GEN-LAST:event_jButtonSentenceUpdateActionPerformed
-    
-    private class UpdateSentenceSwingWorker extends SwingWorker<Sentence,Void> {
-        private SentencesTableModel model = (SentencesTableModel) jTableSentences.getModel();
-        
-        @Override
-        protected Sentence doInBackground() throws Exception {
-            int index = jTableSentences.getSelectedRow();
-            Long prisonerId = (Long) model.getValueAt(index, 0);
-            Long cellId = (Long) model.getValueAt(index, 1);
-            LocalDate from = (LocalDate) model.getValueAt(index , 2);
-            LocalDate to = (LocalDate) model.getValueAt(index, 3);
-            String punishment = (String) model.getValueAt(index, 4);
-            
-            Sentence oldS = new Sentence(prisonerId, cellId, from, to, punishment);
-            
-            LocalDate newFrom = LocalDate.of((Integer) jSpinnerUpdateSentenceStartYear.getValue()
-                    , (Integer) jSpinnerUpdateSentenceStartMonth.getValue()
-                    , (Integer) jSpinnerUpdateSentenceStartDay.getValue());
-            
-            LocalDate newTo = LocalDate.of((Integer) jSpinnerUpdateSentenceEndYear.getValue()
-                    , (Integer) jSpinnerUpdateSentenceEndMonth.getValue()
-                    , (Integer) jSpinnerUpdateSentenceEndDay.getValue());
-            
-            String newPunishment = jTextFieldSentenceUpdate.getText();
-            
-            Sentence newS = new Sentence(prisonerId, cellId, newFrom, newTo, newPunishment);
-            
-            
-            sM.updateSentence(oldS, newS);
-            return newS;
-            
-        }
-        
-        @Override
-        protected void done() {
-            try {
-                model.updateSentence(get(), jTableSentences.getSelectedRow());
-            } catch (InterruptedException ex) {
-                logger.log(Level.SEVERE, "update sentence interupted (this should never happen");
-            } catch (ExecutionException ex) {
-                logger.log(Level.SEVERE, "update sentecne failed thing is wrong");
-            }
-        }
-        
-    }
-    
-    
-    
-    
-    
     private class DeleteSentenceSwingWorker extends SwingWorker<Integer,Void> {
-        private SentencesTableModel sentenceModel = (SentencesTableModel) jTableSentences.getModel();
-        
+        private SentencesTableModel sentenceModel;
+        private Sentence sentence;
+        private  int index;
+
+        public DeleteSentenceSwingWorker(SentencesTableModel sentenceModel, Sentence sentence, int index) {
+            this.sentenceModel = sentenceModel;
+            this.sentence = sentence;
+            this.index = index;
+        }
+
         @Override
         protected Integer doInBackground() throws Exception {
-            int index = jTableSentences.getSelectedRow();
-            Long prisonerId = (Long) sentenceModel.getValueAt(index, 0);
-            Long cellId = (Long) sentenceModel.getValueAt(index, 1);
-            LocalDate from = (LocalDate) sentenceModel.getValueAt(index, 2);
-            LocalDate to = (LocalDate) sentenceModel.getValueAt(index, 3);
-            String punishment = (String) sentenceModel.getValueAt(index, 4);
-            
-            Sentence sentence = new Sentence(prisonerId, cellId, from, to ,punishment);
-            
             sM.deleteSentence(sentence);
-            
-            
             return index;
-            
         }
-        
+
         @Override
         protected void done() {
             try {
@@ -1127,8 +1192,70 @@ public class PrisonFrame extends javax.swing.JFrame {
                 logger.log(Level.SEVERE, "delete sentence failed thing is wrong");
             }
         }
+
+    }
+
+
+    private void jButtonSentenceUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSentenceUpdateActionPerformed
+        logger.log(Level.INFO, "trying to update sentence");
+        SentencesTableModel model = (SentencesTableModel) jTableSentences.getModel();
+        int index = jTableSentences.getSelectedRow();
+        Long prisonerId = (Long) model.getValueAt(index, 0);
+        Long cellId = (Long) model.getValueAt(index, 1);
+        LocalDate from = (LocalDate) model.getValueAt(index , 2);
+        LocalDate to = (LocalDate) model.getValueAt(index, 3);
+        String punishment = (String) model.getValueAt(index, 4);
+
+        Sentence oldS = new Sentence(prisonerId, cellId, from, to, punishment);
+
+        LocalDate newFrom = LocalDate.of((Integer) jSpinnerUpdateSentenceStartYear.getValue()
+                , (Integer) jSpinnerUpdateSentenceStartMonth.getValue()
+                , (Integer) jSpinnerUpdateSentenceStartDay.getValue());
+
+        LocalDate newTo = LocalDate.of((Integer) jSpinnerUpdateSentenceEndYear.getValue()
+                , (Integer) jSpinnerUpdateSentenceEndMonth.getValue()
+                , (Integer) jSpinnerUpdateSentenceEndDay.getValue());
+
+        String newPunishment = jTextFieldSentenceUpdate.getText();
+
+        Sentence newS = new Sentence(prisonerId, cellId, newFrom, newTo, newPunishment);
+        UpdateSentenceSwingWorker ussw = new UpdateSentenceSwingWorker(model, index, oldS, newS);
+        ussw.execute();
+    }//GEN-LAST:event_jButtonSentenceUpdateActionPerformed
+    private class UpdateSentenceSwingWorker extends SwingWorker<Sentence,Void> {
+        private SentencesTableModel model;
+        private int index;
+        private Sentence oldS;
+        private Sentence newS;
+
+        public UpdateSentenceSwingWorker(SentencesTableModel model, int index, Sentence oldS, Sentence newS) {
+            this.model = model;
+            this.index = index;
+            this.oldS = oldS;
+            this.newS = newS;
+        }
+
+        @Override
+        protected Sentence doInBackground() throws Exception {
+            sM.updateSentence(oldS, newS);
+            return newS;
+            
+        }
+        
+        @Override
+        protected void done() {
+            try {
+                model.updateSentence(get(), index);
+            } catch (InterruptedException ex) {
+                logger.log(Level.SEVERE, "update sentence interupted (this should never happen");
+            } catch (ExecutionException ex) {
+                logger.log(Level.SEVERE, "update sentecne failed thing is wrong");
+            }
+        }
         
     }
+    
+
     
     public static void main(String args[]) {
         /* Create and display the form */
@@ -1207,9 +1334,9 @@ public class PrisonFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinnerSentenceEndDay;
     private javax.swing.JSpinner jSpinnerSentenceEndMonth;
     private javax.swing.JSpinner jSpinnerSentenceEndYear;
-    private javax.swing.JSpinner jSpinnerSentenceStardDay;
-    private javax.swing.JSpinner jSpinnerSentenceStardMonth;
-    private javax.swing.JSpinner jSpinnerSentenceStardYear;
+    private javax.swing.JSpinner jSpinnerSentenceStartDay;
+    private javax.swing.JSpinner jSpinnerSentenceStartMonth;
+    private javax.swing.JSpinner jSpinnerSentenceStartYear;
     private javax.swing.JSpinner jSpinnerUpdateCellCapacity;
     private javax.swing.JSpinner jSpinnerUpdateSentenceEndDay;
     private javax.swing.JSpinner jSpinnerUpdateSentenceEndMonth;

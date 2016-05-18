@@ -1,5 +1,5 @@
 
-package cz.muni.fi.pv168.gui;
+package cz.muni.fi.pv168.prison.gui;
 
 import java.awt.GridLayout;
 import javax.swing.JComponent;

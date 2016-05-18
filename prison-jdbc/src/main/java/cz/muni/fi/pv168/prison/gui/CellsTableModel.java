@@ -1,7 +1,7 @@
-package cz.muni.fi.pv168.gui;
 
-import cz.muni.fi.pv168.prison.backend.Prisoner;
-import java.time.LocalDate;
+package cz.muni.fi.pv168.prison.gui;
+
+import cz.muni.fi.pv168.prison.backend.Cell;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -12,70 +12,65 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Zita
  */
-public class PrisonersTableModel extends AbstractTableModel {
+public class CellsTableModel extends AbstractTableModel {
     
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("cz/muni/fi/pv168/prison/gui/strings", Locale.getDefault());
-    private List<Prisoner> prisoners = new ArrayList<Prisoner>();
+    private List<Cell> cells = new ArrayList<Cell>();
 
     @Override
     public int getRowCount() {
-        return prisoners.size();
+        return cells.size();
     }
     
     @Override
     public int getColumnCount() {
-        return 4;
+        return 3;
     }
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
-        Prisoner prisoner = prisoners.get(rowIndex);
+        Cell cell = cells.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return prisoner.getId();
+                return cell.getId();
             case 1:
-                return prisoner.getName();
+                return cell.getFloor();
             case 2:
-                return prisoner.getSurname();
-            case 3:
-                return prisoner.getBorn();
+                return cell.getCapacity();
             default:
                 throw new IllegalArgumentException("columnIndex");
         }
     }
     
-    public void addPrisoner(Prisoner prisoner){
-        prisoners.add(prisoner);
-        int lastRow = prisoners.size() - 1;
+    public void addCell(Cell cell){
+        cells.add(cell);
+        int lastRow = cells.size() - 1;
         fireTableRowsInserted(lastRow, lastRow);
     }
     
-    public void deleterisoner(int index) {
-        this.prisoners.remove(index);
+    public void deleteCell(int index) {
+        this.cells.remove(index);
         fireTableRowsDeleted(index, index);
     }
     
-    public void updatePrisoner(Prisoner prisoner, int index) {
-        prisoners.set(index, prisoner);
+    public void updateCell(Cell cell, int index) {
+        cells.set(index, cell);
         fireTableRowsUpdated(index, index);
-        
     }
     
     public void refresh() {
-        this.prisoners.clear();
+        this.cells.clear();
     }
     
     @Override
     public String getColumnName(int columnIndex) {
         switch(columnIndex) {
             case 0:
-                return resourceBundle.getString("table_prisoners_header_id");
+                return resourceBundle.getString("table_cells_header_id");
             case 1:
-                return resourceBundle.getString("table_prisoners_header_name");
+                return resourceBundle.getString("table_cells_header_floor");
             case 2:
-                return resourceBundle.getString("table_prisoners_header_surname");
-            case 3:
-                return resourceBundle.getString("table_prisoners_header_born");
+                return resourceBundle.getString("table_cells_header_capacity");
             default:
                 throw new IllegalArgumentException("columnIndex");
         }
@@ -87,11 +82,9 @@ public class PrisonersTableModel extends AbstractTableModel {
             case 0:
                 return Long.class;
             case 1:
-                return String.class;
+                return Integer.class;
             case 2:
-                return String.class;
-            case 3:
-                return LocalDate.class;
+                return Integer.class;
             default:
                 throw new IllegalArgumentException("columnIndex");
         }
@@ -99,19 +92,16 @@ public class PrisonersTableModel extends AbstractTableModel {
     
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Prisoner prisoner = prisoners.get(rowIndex);
+        Cell cell = cells.get(rowIndex);
         switch(columnIndex) {
             case 0:
-                prisoner.setId((Long) aValue);
+                cell.setId((Long) aValue);
                 break;
             case 1:
-                prisoner.setName((String) aValue);
+                cell.setFloor((Integer) aValue);
                 break;
             case 2:
-                prisoner.setSurname((String) aValue);
-                break;
-            case 3:
-                prisoner.setBorn((LocalDate) aValue);
+                cell.setCapacity((Integer) aValue);
                 break;
             default:
                 throw new IllegalArgumentException("columnIndex");
@@ -128,11 +118,8 @@ public class PrisonersTableModel extends AbstractTableModel {
                 return true;
             case 2:
                 return true;
-            case 3:
-                return false;
             default:
                 throw new IllegalArgumentException("columnIndex");
         }
     }
 }
-
