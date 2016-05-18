@@ -71,9 +71,9 @@ public class SentencesTableModel extends AbstractTableModel {
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return Integer.class;
+                return Long.class;
             case 1:
-                return Integer.class;
+                return Long.class;
             case 2:
                 return LocalDate.class;
             case 3:

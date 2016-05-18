@@ -133,6 +133,7 @@ public class PrisonFrame extends javax.swing.JFrame {
         jButtonDeleteCell = new javax.swing.JButton();
         jButtonUpdateCell = new javax.swing.JButton();
         jLabelSentence = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanelSentences = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableSentences = new javax.swing.JTable();
@@ -186,12 +187,19 @@ public class PrisonFrame extends javax.swing.JFrame {
 
         jLabelCells.setText("Cells");
 
-        jComboBoxCreateCellFloor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxCreateCellFloor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Floor 1", "Floor 2", "Floor 3", "Floor 4", "Floor 5" }));
+        jComboBoxCreateCellFloor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCreateCellFloorActionPerformed(evt);
+            }
+        });
 
         jTableCells.setModel(new CellsTableModel());
         jScrollPane4.setViewportView(jTableCells);
 
         jComboBoxUpdateCellFloor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jSpinnerUpdateCellCapacity.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
 
         jButtonCreateCell.setText("Create Cell");
         jButtonCreateCell.addActionListener(new java.awt.event.ActionListener() {
@@ -216,6 +224,8 @@ public class PrisonFrame extends javax.swing.JFrame {
 
         jLabelSentence.setText("Sentence");
 
+        jLabel1.setText("Capacity:");
+
         javax.swing.GroupLayout jPanelPrisonersLayout = new javax.swing.GroupLayout(jPanelPrisoners);
         jPanelPrisoners.setLayout(jPanelPrisonersLayout);
         jPanelPrisonersLayout.setHorizontalGroup(
@@ -224,15 +234,19 @@ public class PrisonFrame extends javax.swing.JFrame {
                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelPrisonersLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelPrisonersLayout.createSequentialGroup()
                                 .addComponent(jComboBoxUpdateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(78, 78, 78)
-                                .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinnerCreateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSpinnerCreateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelPrisonersLayout.createSequentialGroup()
+                                .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(237, 237, 237)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonDeleteCell, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -305,7 +319,8 @@ public class PrisonFrame extends javax.swing.JFrame {
                     .addComponent(jComboBoxCreateCellFloor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jSpinnerUpdateCellCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonCreateCell)))
+                        .addComponent(jButtonCreateCell)
+                        .addComponent(jLabel1)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelPrisonersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPrisonersLayout.createSequentialGroup()
@@ -398,7 +413,12 @@ public class PrisonFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCreatePrisonerActionPerformed
 
     private void jButtonCreateCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateCellActionPerformed
-        // TODO add your handling code here:
+        CellsTableModel model = (CellsTableModel) jTableCells.getModel();
+        int floor = jComboBoxCreateCellFloor.getSelectedIndex() + 1;
+        int capacity = (Integer) jSpinnerUpdateCellCapacity.getValue();
+        Cell cell = new Cell(floor,capacity);
+        cM.createCell(cell);
+        model.addCell(cell);
     }//GEN-LAST:event_jButtonCreateCellActionPerformed
 
     private void jButtonDeleteCellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCellActionPerformed
@@ -420,6 +440,10 @@ public class PrisonFrame extends javax.swing.JFrame {
     private void jButtonDeletePrisonerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletePrisonerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonDeletePrisonerActionPerformed
+
+    private void jComboBoxCreateCellFloorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCreateCellFloorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCreateCellFloorActionPerformed
    
     public static void main(String args[]) {
         /* Create and display the form */
@@ -450,6 +474,7 @@ public class PrisonFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxSentencePunishment;
     private javax.swing.JComboBox<String> jComboBoxSentenceUpdatePunishment;
     private javax.swing.JComboBox<String> jComboBoxUpdateCellFloor;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCells;
     private javax.swing.JLabel jLabelPrisoners;
     private javax.swing.JLabel jLabelSentence;

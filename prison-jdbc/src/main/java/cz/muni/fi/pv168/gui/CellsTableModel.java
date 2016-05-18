@@ -63,7 +63,7 @@ public class CellsTableModel extends AbstractTableModel {
     public Class<?> getColumnClass(int columnIndex){
         switch(columnIndex){
             case 0:
-                return Integer.class;
+                return Long.class;
             case 1:
                 return Integer.class;
             case 2:
