@@ -47,6 +47,11 @@ public class PrisonersTableModel extends AbstractTableModel {
         fireTableRowsInserted(lastRow, lastRow);
     }
     
+    public void deleterisoner(int index) {
+        this.prisoners.remove(index);
+        fireTableRowsDeleted(index, index);
+    }
+    
     public void refresh() {
         this.prisoners.clear();
     }

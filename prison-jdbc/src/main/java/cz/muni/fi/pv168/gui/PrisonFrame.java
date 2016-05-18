@@ -831,9 +831,9 @@ public class PrisonFrame extends javax.swing.JFrame {
             try {
                 model.updateCell(get(), jTableCells.getSelectedRow());
             } catch (InterruptedException ex) {
-                logger.log(Level.SEVERE, "updating cell interupted (this should never happen");
+                logger.log(Level.SEVERE, "creating prisoner interupted (this should never happen");
             } catch (ExecutionException ex) {
-                logger.log(Level.SEVERE, "updating cell failed something is wrong");
+                logger.log(Level.SEVERE, "creating prisoner failed something is wrong");
             }
         }
         
@@ -854,29 +854,24 @@ public class PrisonFrame extends javax.swing.JFrame {
         dpsw.execute();
     }//GEN-LAST:event_jButtonDeletePrisonerActionPerformed
 
-    private class DeletePrisonerSwingWorker extends SwingWorker<Prisoner,Void> {
+    private class DeletePrisonerSwingWorker extends SwingWorker<Integer,Void> {
         private PrisonersTableModel model = (PrisonersTableModel) jTablePrisoners.getModel();
         @Override
-        protected Prisoner doInBackground() throws Exception {
-            String name = jTextFieldPrisonerCreateName.getText();
-            String surname = jTextFieldPrisonerCreateSurname.getText();
-            int day = (Integer) jSpinnerPrisonerCreateDay.getValue();
-            int month = (Integer) jSpinnerPrisonerCreateMonth.getValue();
-            int year = (Integer) jSpinnerPrisonerCreateYear.getValue();
-            LocalDate born = LocalDate.of(year, month, day);
-            Prisoner prisoner = new Prisoner(name, surname, born);
-            pM.createPrisoner(prisoner);
-            return prisoner;
+        protected Integer doInBackground() throws Exception {
+            int index = jTablePrisoners.getSelectedRow();
+            Long id = (Long) model.getValueAt(index, 0);
+            pM.deletePrisoner(pM.getPrisonerById(id));
+            return index;
         }
         
         @Override
         protected void done() {
             try {
-                model.addPrisoner(get());
+                model.deleterisoner(get());
             } catch (InterruptedException ex) {
-                logger.log(Level.SEVERE, "creating cell interupted (this should never happen");
+                logger.log(Level.SEVERE, "deleting prisoner interupted (this should never happen");
             } catch (ExecutionException ex) {
-                logger.log(Level.SEVERE, "creating cell failed something is wrong");
+                logger.log(Level.SEVERE, "deleting prisoner failed something is wrong");
             }
         }
         
