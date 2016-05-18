@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Wed May 18 09:24:12 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-c2c0-20ba-0000036b1fa8 
-on database directory memory:/Users/oldrichkonecny/Desktop/PV168/prisonApp2/java-prison-app/prison-jdbc/books with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
-Loaded from file:/Users/oldrichkonecny/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Wed May 18 11:31:14 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-c334-6f05-0000037e0478 
+on database directory memory:D:\GitHub\java-prison-app\prison-jdbc\books with class loader sun.misc.Launcher$AppClassLoader@4e0e2f2a 
+Loaded from file:/C:/Users/Zita/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_45-b14
-user.dir=/Users/oldrichkonecny/Desktop/PV168/prisonApp2/java-prison-app/prison-jdbc
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.10.5
+java.runtime.version=1.8.0_66-b18
+user.dir=D:\GitHub\java-prison-app\prison-jdbc
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

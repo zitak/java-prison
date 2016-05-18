@@ -49,6 +49,10 @@ public class SentencesTableModel extends AbstractTableModel {
         fireTableRowsInserted(lastRow, lastRow);
     }
     
+    public void refresh() {
+        this.sentences.clear();
+    }
+    
     @Override
     public String getColumnName(int columnIndex) {
         switch(columnIndex) {

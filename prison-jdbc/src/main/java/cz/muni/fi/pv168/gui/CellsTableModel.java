@@ -45,6 +45,20 @@ public class CellsTableModel extends AbstractTableModel {
         fireTableRowsInserted(lastRow, lastRow);
     }
     
+    public void deleteCell(int index) {
+        this.cells.remove(index);
+        fireTableRowsDeleted(index, index);
+    }
+    
+    public void updateCell(Cell cell, int index) {
+        cells.set(index, cell);
+        fireTableRowsUpdated(index, index);
+    }
+    
+    public void refresh() {
+        this.cells.clear();
+    }
+    
     @Override
     public String getColumnName(int columnIndex) {
         switch(columnIndex) {

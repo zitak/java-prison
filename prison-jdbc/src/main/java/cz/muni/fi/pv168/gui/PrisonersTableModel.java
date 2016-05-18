@@ -47,6 +47,10 @@ public class PrisonersTableModel extends AbstractTableModel {
         fireTableRowsInserted(lastRow, lastRow);
     }
     
+    public void refresh() {
+        this.prisoners.clear();
+    }
+    
     @Override
     public String getColumnName(int columnIndex) {
         switch(columnIndex) {
