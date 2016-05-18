@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
+import cz.muni.fi.pv168.prison.backend.Sentence;
 
 /**
  *
@@ -89,10 +90,10 @@ public class SentencesTableModel extends AbstractTableModel {
         Sentence sentence = sentences.get(rowIndex);
         switch(columnIndex) {
             case 0:
-                sentence.setPrisonerId((Integer) aValue);
+                sentence.setPrisonerId((Long) aValue);
                 break;
             case 1:
-                sentence.setCellId((Integer) aValue);
+                sentence.setCellId((Long) aValue);
                 break;
             case 2:
                 sentence.setStartDay((LocalDate) aValue);

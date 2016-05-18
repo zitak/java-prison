@@ -1,5 +1,6 @@
 package cz.muni.fi.pv168.gui;
 
+import cz.muni.fi.pv168.prison.backend.Prisoner;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +84,7 @@ public class PrisonersTableModel extends AbstractTableModel {
         Prisoner prisoner = prisoners.get(rowIndex);
         switch(columnIndex) {
             case 0:
-                prisoner.setId((Integer) aValue);
+                prisoner.setId((Long) aValue);
                 break;
             case 1:
                 prisoner.setName((String) aValue);

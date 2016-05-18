@@ -23,12 +23,14 @@ public class PrisonerManagerImpl implements PrisonerManager {
             PrisonerManagerImpl.class.getName());
 
     private DataSource dataSource;
-    private final Clock clock;
+    private Clock clock;
 
     public PrisonerManagerImpl(Clock clock) {
         this.clock = clock;
     }
-    //public PrisonerManagerImpl() { }
+    public PrisonerManagerImpl(DataSource ds) {
+        this.dataSource = ds;
+    }
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -283,7 +285,12 @@ public class PrisonerManagerImpl implements PrisonerManager {
         if (prisoner.getSurname() == null) {
             throw new ValidationException("surname is null");
         }
-        LocalDate today = LocalDate.now(clock);
+        LocalDate today;
+        if (clock != null) {
+            today = LocalDate.now(clock);
+        } else {
+            today = LocalDate.now();
+        }
         if (prisoner.getBorn() != null && prisoner.getBorn().isAfter(today)) {
             throw new ValidationException("born is in future");
         }

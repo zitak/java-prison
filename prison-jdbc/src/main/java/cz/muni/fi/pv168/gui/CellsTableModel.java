@@ -1,6 +1,7 @@
 
 package cz.muni.fi.pv168.gui;
 
+import cz.muni.fi.pv168.prison.backend.Cell;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -77,7 +78,7 @@ public class CellsTableModel extends AbstractTableModel {
         Cell cell = cells.get(rowIndex);
         switch(columnIndex) {
             case 0:
-                cell.setId((Integer) aValue);
+                cell.setId((Long) aValue);
                 break;
             case 1:
                 cell.setFloor((Integer) aValue);

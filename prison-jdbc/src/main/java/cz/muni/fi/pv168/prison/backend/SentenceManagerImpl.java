@@ -12,8 +12,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  * This class implements sentence manager.
@@ -29,8 +31,11 @@ public class SentenceManagerImpl implements SentenceManager {
         this.clock = clock;
     }
 
-    public SentenceManagerImpl(DataSource ds) {this.dataSource = ds; }
-
+    public SentenceManagerImpl(DataSource ds) {
+        this.dataSource = ds;
+        
+    }
+    
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -418,10 +423,18 @@ public class SentenceManagerImpl implements SentenceManager {
 
     public List<Sentence> getCurrentSentenceFromList(List<Sentence> list) {
         List<Sentence> retList = new ArrayList<>();
-
-        for (Sentence s : list) {
-            if (s.getEndDay().isAfter(LocalDate.now(clock))) {
-                retList.add(s);
+        
+        if (this.clock != null) {
+            for (Sentence s : list) {
+                if (s.getEndDay().isAfter(LocalDate.now(clock))) {
+                    retList.add(s);
+                }
+            }
+        } else {
+            for (Sentence s : list) {
+                if (s.getEndDay().isAfter(LocalDate.now())) {
+                    retList.add(s);
+                }
             }
         }
         return retList;

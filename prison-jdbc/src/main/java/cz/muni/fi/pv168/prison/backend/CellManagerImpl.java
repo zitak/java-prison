@@ -23,7 +23,9 @@ public class CellManagerImpl implements CellManager {
     private DataSource dataSource;
 
     public CellManagerImpl() { }
-
+    public CellManagerImpl(DataSource ds) {
+        this.dataSource = ds;
+    }
 
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
